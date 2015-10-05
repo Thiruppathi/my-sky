@@ -1,0 +1,27 @@
+<dom-module id="my-basket">
+  <template>
+    <iron-localstorage name="my-basket-storage" value="{{basket}}" on-iron-localstorage-load-empty="initializeDefaultCartoon"></iron-localstorage>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'my-basket',
+    properties: {
+      basket: {
+        type: Array,
+        notify: true,
+        reflectToAttribute: true,
+        value: []
+      }
+    },
+    // initializes default if nothing has been stored
+    initializeDefaultCartoon: function() {
+      this.basket = [];
+    },
+    // use path set api to propagate changes to localstorage
+    makeModifications: function(basket) {
+      this.basket = basket;
+    }
+  });
+</script>

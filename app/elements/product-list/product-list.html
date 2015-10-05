@@ -1,0 +1,72 @@
+<dom-module id="product-list">
+  <style>
+    .horizontal-section {
+      background-color: white;
+      padding: 24px;
+      margin-right: 24px;
+      min-width: 200px;
+      @apply(--shadow-elevation-2dp);
+    }
+
+    paper-checkbox {
+      display: block;
+      margin-bottom: 40px;
+    }
+
+    paper-checkbox.blue {
+      --paper-checkbox-checked-color: var(--paper-light-blue-500);
+      --paper-checkbox-checked-ink-color: var(--paper-light-blue-500);
+      --paper-checkbox-unchecked-color: var(--paper-light-blue-900);
+      --paper-checkbox-unchecked-ink-color: var(--paper-light-blue-900);
+    }
+  </style>
+  <template>
+
+    <div class="horizontal-section">
+      <h4>{{category}}</h4>
+      <firebase-collection location="https://mysky.firebaseio.com/catalogue" order-by-child="category" equal-to="{{category}}" data="{{products}}">
+      </firebase-collection>
+
+      <template is="dom-repeat" items="{{products}}" as="product">
+        <template is="dom-if" if="{{isLocation(product,location)}}">
+          <paper-checkbox class="blue" on-change="checkBoxHandler" id="{{product.productID}}">{{product.name}}</paper-checkbox>
+        </template>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'product-list',
+      properties: {
+        category: String,
+        location: String,
+        channels: {
+          type: Array,
+          notify: true,
+          reflectToAttribute: true,
+          value: []
+        }
+
+      },
+      checkBoxHandler: function(e) {
+
+        if (e.target.checked) {
+          console.log('Adding to Cart');
+          this.channels.push(e.target.id);
+        } else {
+          console.log('Removing from Cart');
+          this.channels.pop(e.target.id);
+        }
+        document.querySelector('#noOfChannels').innerHTML = this.channels.length ;
+        console.log(this.channels.length + ' Items in Basket');
+
+      },
+
+      isLocation: function(product, location) {
+        return (location === product.locationID) || (product.locationID === "");
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,86 @@
+{
+  "catalogue" : {
+    "PROD-001" : {
+      "avatar" : "",
+      "category" : "Sports",
+      "locationID" : "LOC-001",
+      "name" : "Arsenal TV",
+      "productID" : "PROD-001"
+    },
+    "PROD-002" : {
+      "avatar" : "",
+      "category" : "Sports",
+      "locationID" : "LOC-001",
+      "name" : "Chelsea TV",
+      "productID" : "PROD-002"
+    },
+    "PROD-003" : {
+      "avatar" : "",
+      "category" : "Sports",
+      "locationID" : "LOC-002",
+      "name" : "Liverpool TV",
+      "productID" : "PROD-003"
+    },
+    "PROD-004" : {
+      "avatar" : "",
+      "category" : "News",
+      "locationID" : "",
+      "name" : "Sky News",
+      "productID" : "PROD-004"
+    },
+    "PROD-005" : {
+      "avatar" : "",
+      "category" : "News",
+      "locationID" : "",
+      "name" : "Sky Sports News",
+      "productID" : "PROD-005"
+    }
+  },
+  "customers" : {
+    "JVEJ8bTtGaKr0g2U9ko" : {
+      "avatar" : "",
+      "customerID" : "JVEJ8bTtGaKr0g2U9ko",
+      "email" : "john.doe@domain.com",
+      "locationID" : "LOC-001",
+      "name" : "John Doe"
+    },
+    "JVEJ8bTtGaKr0g2U9kp" : {
+      "avatar" : "",
+      "customerID" : "JVEJ8bTtGaKr0g2U9kp",
+      "email" : "jane.doe@domain.com",
+      "locationID" : "LOC-001",
+      "name" : "Jane Doe"
+    },
+    "JVEJ8bTtGaKr0g2U9kq" : {
+      "avatar" : "",
+      "customerID" : "JVEJ8bTtGaKr0g2U9kq",
+      "email" : "Oliver.Queen@domain.com",
+      "locationID" : "LOC-002",
+      "name" : "Oliver Queen"
+    }
+  },
+  "location" : {
+    "LOC-001" : {
+      "location" : "London",
+      "locationID" : "LOC-001"
+    },
+    "LOC-002" : {
+      "location" : "Liverpool",
+      "locationID" : "LOC-002"
+    }
+  },
+  "orders" : {
+    "ODR-001" : {
+      "customerID" : "JVEJ8bTtGaKr0g2U9ko",
+      "items" : [ {
+        "productID" : "PROD-001"
+      }, {
+        "productID" : "PROD-004"
+      }, {
+        "productID" : "PROD-005"
+      } ],
+      "orderID" : "ODR-001",
+      "total" : 165
+    }
+  }
+}

@@ -1,0 +1,70 @@
+<dom-module id="confirm-page">
+
+  <style type="text/css">
+    .customerData {
+      padding: 1em;
+      margin: 0.5em;
+      width: 300px;
+      text-align: center;
+    }
+
+    #customer-image {
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .customerData:hover {
+      box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.4);
+    }
+
+    a span {
+      color: #111111;
+      display: block;
+      margin: 0.25em;
+      text-align: center;
+    }
+  </style>
+  <template>
+
+    <template is="dom-bind">
+      <firebase-document location="https://mysky.firebaseio.com/orders/lastOrder" data="{{order}}"></firebase-document>
+      <span>{{order.customerID}}</span>
+    </template>
+
+    <template is="dom-bind">
+      <firebase-document location="https://mysky.firebaseio.com/orders/lastOrder/products" data="{{products}}"></firebase-document>
+      <template is="dom-repeat" items="{{products}}" as="product">
+        <span>{{product.__firebaseKey__}}</span>
+      </template>
+    </template>
+
+    <h1>ID:
+      <span>{{customerid}}</span>
+    </h1>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'confirm-page',
+      properties: {
+        customerid: String,
+        orderid: String
+      },
+      computeCustomers: function(customerid) {
+        return 'https://mysky.firebaseio.com/customers/';
+      },
+      getLastOrder: function(customerid) {
+        var productURL = 'https://mysky.firebaseio.com/orders/' + customerid + '/lastOrder/products';
+        console.log(productURL);
+        return productURL;
+      }
+    });
+  </script>
+</dom-module>

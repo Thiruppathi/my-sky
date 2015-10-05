@@ -1,0 +1,70 @@
+<dom-module id="customer-list">
+  <style>
+    :host {
+      display: block;
+    }
+
+    paper-button.colorful {
+      color: #4285f4;
+    }
+
+    paper-button[raised].colorful {
+      background: #007878;
+      color: #fff;
+      margin: 10px;
+    }
+
+    #searchBar {
+      left: 0;
+      top: 0;
+      padding: 16px;
+    }
+    .break {
+      height: 1em;
+    }
+    paper-input {
+      width: 100%;
+    }
+  </style>
+  <template>
+
+    <section>
+      <div class="horizontal layout end" id="searchBar">
+        <iron-icon icon="search"  style="margin: 0 10px 6px 0;"></iron-icon>
+        <paper-input is="iron-input" no-label-float label="Search Customer" value="{{filterVal::input}}" autofocus>
+        </paper-input>
+      </div>
+    </section>
+  
+
+    <section class="break"></section>
+
+    <section class="layout horizontal wrap">
+      <firebase-collection
+          location="https://mysky.firebaseio.com/customers"
+          order-by-child="name"
+          data="{{customers}}">
+      </firebase-collection>
+      <template is="dom-repeat" items="[[customers]]" as="customer" id="customersList"
+          filter="{{_filter(filterVal)}}" >
+        <customer-card customer="{{customer}}"></customer-card>
+      </template>
+    </section>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'customer-list',
+
+      _filter: function(val) {
+        return function(customer) {
+                if (!val) return true;
+                if (!customer) return false;
+                return (customer.name  && ~customer.name.toLowerCase().indexOf(val.toLowerCase()))  ||
+                       (customer.email && ~customer.email.toLowerCase().indexOf(val.toLowerCase()));
+              };
+      }
+
+    });
+  </script>
+</dom-module>
