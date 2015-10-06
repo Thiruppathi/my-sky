@@ -154,7 +154,7 @@
           var newProduct = {
             [prodKey]: {
               'productID': prodKey,
-              'name': prodValue
+              'name': prodValue.trim()
             }
           };
           this.channels.push(newProduct);
