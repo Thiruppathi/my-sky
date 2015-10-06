@@ -159,7 +159,7 @@
           this.prodNames.push(prodValue);
         } else {
           this.channels = this.channels.filter(function(c) {
-            return (c.hasOwnProperty(prodKey));
+            return (!c.hasOwnProperty(prodKey));
           });
           var i = this.prodNames.indexOf(prodValue);
           if (i != -1) {
@@ -168,7 +168,7 @@
         }
         document.querySelector('#noOfChannels').innerHTML = this.prodNames.length;
         document.querySelector('my-basket').basket = this.channels;
-
+        console.log('channels: ' + this.channels);
         this.updateBasket(this.channels, this.prodNames);
       },
       updateBasket: function(channels, prodNames) {
