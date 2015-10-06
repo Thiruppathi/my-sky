@@ -100,11 +100,12 @@
           <my-basket basket=[[channels]]> </my-basket>
           <div id="basket"> </div>
           <paper-button raised class="colorful" on-click="goLink">Check Out</paper-button>
-          <a data-route="confirm-page" href="[[computeHref(customer)]]" class="colorful">Check Out Link</a>
+          <!-- <a data-route="confirm-page" href="[[computeHref(customer)]]" class="colorful">Check Out Link</a> -->
         </div>
       </div>
     </div>
 
+    <span>[[reloadChecks()]]</span>
   </template>
 
   <script>
@@ -127,7 +128,9 @@
           value: []
         }
       },
-
+      reloadChecks: function() {
+        console.log('reloadChecks');
+      },
       computeFbHref: function(customerid) {
         return 'https://mysky.firebaseio.com/customers/' + customerid;
       },
@@ -145,7 +148,6 @@
         return (location === product.locationID) || (product.locationID === "");
       },
       checkBoxHandler: function(e) {
-
         var prodKey = e.target.id;
         var prodValue = e.target.innerText;
         if (e.target.checked) {
@@ -168,7 +170,6 @@
         }
         document.querySelector('#noOfChannels').innerHTML = this.prodNames.length;
         document.querySelector('my-basket').basket = this.channels;
-        console.log('channels: ' + this.channels);
         this.updateBasket(this.channels, this.prodNames);
       },
       updateBasket: function(channels, prodNames) {
