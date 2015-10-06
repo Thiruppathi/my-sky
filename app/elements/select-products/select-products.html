@@ -118,7 +118,13 @@
           type: Array,
           notify: true,
           reflectToAttribute: true,
-          value: [],
+          value: []
+        },
+        prodNames: {
+          type: Array,
+          notify: true,
+          reflectToAttribute: true,
+          value: []
         }
       },
 
@@ -139,61 +145,67 @@
         return (location === product.locationID) || (product.locationID === "");
       },
       checkBoxHandler: function(e) {
+
+        var prodKey = e.target.id;
+        var prodValue = e.target.innerText;
         if (e.target.checked) {
-          this.channels.push(e.target.id + ':' + e.target.innerText);
+          var newProduct = {
+            [prodKey]: {
+              'productID': prodKey,
+              'name': prodValue
+            }
+          };
+          this.channels.push(newProduct);
+          this.prodNames.push(prodValue);
         } else {
-          var i = this.channels.indexOf(e.target.id + ':' + e.target.innerText);
+          this.channels = this.channels.filter(function(c) {
+            return (c.hasOwnProperty(prodKey));
+          });
+          var i = this.prodNames.indexOf(prodValue);
           if (i != -1) {
-            this.channels.splice(i, 1);
+            this.prodNames.splice(i, 1);
           }
         }
-        //this.computeBasketSize(this.channels);
-        document.querySelector('#noOfChannels').innerHTML = this.channels.length;
+        document.querySelector('#noOfChannels').innerHTML = this.prodNames.length;
         document.querySelector('my-basket').basket = this.channels;
 
-        this.updateBasket(this.channels);
+        this.updateBasket(this.channels, this.prodNames);
       },
-      checkBoxHandler_backup: function(e) {
-        if (e.target.checked) {
-          console.log('Adding to Cart');
-          this.channels.push(e.target.id + ':' + e.target.innerText);
-        } else {
-          console.log('Removing from Cart');
-          var i = this.channels.indexOf(e.target.id + ':' + e.target.innerText);
-          if (i != -1) {
-            this.channels.splice(i, 1);
-          }
-        }
-        //this.computeBasketSize(this.channels);
-        document.querySelector('#noOfChannels').innerHTML = this.channels.length;
-        document.querySelector('my-basket').basket = this.channels;
-
-        this.updateBasket(this.channels);
-      },
-      updateBasket: function(channels) {
+      updateBasket: function(channels, prodNames) {
         var basket = document.querySelector('#basket');
         while (basket.firstChild) {
           basket.removeChild(basket.firstChild);
         }
-        channels.forEach(function(c) {
+        prodNames.forEach(function(c) {
           var cSpan = document.createElement('h4');
           cSpan.innerHTML = c;
           basket.appendChild(cSpan);
         });
       },
-
       goLink: function(e) {
         console.log('Clicked Button');
         var orderRef = new Firebase('https://mysky.firebaseio.com/orders');
         var orderDate = new Date().toString();
+        var products = {};
+
+        var newOrder = {
+          'customerID': this.customerid,
+          'orderDate': orderDate
+        };
+        console.log(newOrder);
+        orderRef.child('lastOrder').set(newOrder);
+        var c = this.channels;
+        c.forEach(function(channel) {
+          console.log(channel);
+          var newProdKey = Object.getOwnPropertyNames(channel).toString();
+          orderRef.child('lastOrder').child('products').child(newProdKey).set(channel[newProdKey]);
+        });
         var newOrder = {
           'customerID': this.customerid,
           'products': this.channels,
           'orderDate': orderDate
         };
-        console.log(newOrder);
-        orderRef.child('lastOrder').set(newOrder);
-        orderRef.child(this.customerid).child('orderHistory').push(newOrder);
+        orderRef.child('orderHistory').push(newOrder);
         app.route = '/' + 'checkout/' + this.customerid;
         page.redirect(app.route);
       },

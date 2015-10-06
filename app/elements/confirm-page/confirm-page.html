@@ -36,34 +36,21 @@
       <firebase-document location="https://mysky.firebaseio.com/orders/lastOrder" data="{{order}}"></firebase-document>
       <span>{{order.customerID}}</span>
     </template>
-
+    <br>
+    <h1>Products</h1>
     <template is="dom-bind">
-      <firebase-document location="https://mysky.firebaseio.com/orders/lastOrder/products" data="{{products}}"></firebase-document>
+      <firebase-collection location="https://mysky.firebaseio.com/orders/lastOrder/products" data="{{products}}"></firebase-collection>
       <template is="dom-repeat" items="{{products}}" as="product">
-        <span>{{product.__firebaseKey__}}</span>
+        <span>{{product.name}}</span><br>
       </template>
     </template>
-
-    <h1>ID:
-      <span>{{customerid}}</span>
-    </h1>
-
   </template>
 
   <script>
     Polymer({
       is: 'confirm-page',
       properties: {
-        customerid: String,
-        orderid: String
-      },
-      computeCustomers: function(customerid) {
-        return 'https://mysky.firebaseio.com/customers/';
-      },
-      getLastOrder: function(customerid) {
-        var productURL = 'https://mysky.firebaseio.com/orders/' + customerid + '/lastOrder/products';
-        console.log(productURL);
-        return productURL;
+        customerid: String
       }
     });
   </script>
