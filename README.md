@@ -198,8 +198,8 @@ mocha test-catalogue-service.js
   2. ~~Align Sports/News/Basket Cards~~
   3. ~~Show LOGOUT options~~
   4. ~~Show animated checkbox~~
-  5. ~~Show animation when basket updated~~ added toast
-  6. ~~VALIDATE Before Checkout; if Invlaid Disable ~~
+  5. ~~Show toast when basket update~~
+  6. ~~VALIDATE Before Checkout; if Invlaid Disable~~
 * **Confirmation Page**
 	1. ~~Show Customer ID & Details~~
 	2. ~~Show Toast with Success Message - Green Color with Icon~~
