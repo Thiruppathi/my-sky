@@ -9,15 +9,11 @@ Location based product purchase service.
 * **Back-End**
 	* Firebase
 * **Unit Testing**
-	1. Web Component Tester
+	* Mocha(TDD,BDD), Web Component Tester
 * **Task Runners, Build Process & Development Workflow**
 	*  **Polymer Starter Kit** which makes use of Gulp, bower, npm, browser-sync, vulcanize, etc.,
 * **Source Control**
 	* GitHub
-* **Documentation**
-	* Markdown
-	* <iron-pages>
-	* prism.js
 * **IDE & Dev Tools**
 	* Atom
 	* Chrome Dev Tools
@@ -31,7 +27,6 @@ To run this application you need to:
 1. Get a copy of the code.
 2. Install the dependencies if you don't already have them.
 3. Run the Application
-
 
 
 ### Get the code
