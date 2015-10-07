@@ -173,8 +173,7 @@ A CustomerLocationService is available which will take the customerID as an inpu
 mocha test-customer-location-service.js
 ````
 
-<script type="text/javascript" src="https://asciinema.org/a/9jg8ph0vcpcl7th45ngq97p6t.js" id="asciicast-9jg8ph0vcpcl7th45ngq97p6t" async data-autoplay="true" data-loop="true"></script>
-
+<a href="https://asciinema.org/a/9jg8ph0vcpcl7th45ngq97p6t" target="_blank"><img src="https://asciinema.org/a/9jg8ph0vcpcl7th45ngq97p6t.png" width="705"/></a>
 
 ####Catalogue Service Test
 
@@ -195,7 +194,8 @@ The locationID returned from CustomerLocationService should be passed to a Catal
 ````shcd app/test/
 mocha test-catalogue-service.js
 ````
-<script type="text/javascript" src="https://asciinema.org/a/d1h731gqciq2d7mt0q3fn0s0h.js" id="asciicast-d1h731gqciq2d7mt0q3fn0s0h" async data-autoplay="true" data-loop="true"></script>
+
+<a href="https://asciinema.org/a/d1h731gqciq2d7mt0q3fn0s0h" target="_blank"><img src="https://asciinema.org/a/d1h731gqciq2d7mt0q3fn0s0h.png" width="705"/></a>
 
 
 ### UI Testing Scenarios - Manual
