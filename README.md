@@ -2,41 +2,6 @@
 Location based product purchase service.
 
 ----
-##Contents
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-
-- [Technologies/Concepts Involved](#technologiesconcepts-involved)
-- [Getting Started](#getting-started)
-  - [Get the code](#get-the-code)
-  - [Install dependencies](#install-dependencies)
-    - [Quick-start](#quick-start)
-    - [Prerequisites (for everyone)](#prerequisites-for-everyone)
-  - [Development workflow](#development-workflow)
-    - [Serve / watch](#serve--watch)
-    - [Run tests](#run-tests)
-    - [Build & Vulcanize](#build-&-vulcanize)
-- [Testing Evidences](#testing-evidences)
-  - [Service Tests - Automated Mocha (TDD & BDD)](#service-tests---automated-mocha-tdd-&-bdd)
-    - [Customer Location Service Test](#customer-location-service-test)
-  - [UI Testing Scenarios - Manual](#ui-testing-scenarios---manual)
-    - [Landing Page](#landing-page)
-    - [Product Selection Page](#product-selection-page)
-    - [Confirmation Page](#confirmation-page)
-- [Application Theming & Styling](#application-theming-&-styling)
-  - [Styling](#styling)
-- [Unit Testing](#unit-testing)
-- [Dependency Management](#dependency-management)
-- [Frequently Asked Questions](#frequently-asked-questions)
-  - [Something has failed during installation. How do I fix this?](#something-has-failed-during-installation-how-do-i-fix-this)
-  - [I'm having trouble getting Vulcanize to fully build my project on Windows. Help?](#im-having-trouble-getting-vulcanize-to-fully-build-my-project-on-windows-help)
-- [TODO](#todo)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
-----
 ## Technologies/Concepts Involved
 * **Front-End**
 	1. HTML5, CSS, JavaScript
@@ -186,11 +151,12 @@ The locationID returned from CustomerLocationService should be passed to a Catal
 ￼|News| Sky News|  |
 ￼|News| Sky Sports News|  |
 
+
 1. The CatalogueService will only return ArsenalTV and ChelseaTV if the locationID is LONDON. 
 2. The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.3. The CatalogueService will always return Sky News and Sky Sports News.
 
 ##### Evidence
-[test-catalogue-service.js](app/test/test-catalogue-service.js)app/test/test-catalogue-service.js
+[test-catalogue-service.js](app/test/test-catalogue-service.js)
 ````shcd app/test/
 mocha test-catalogue-service.js
 ````
@@ -226,84 +192,6 @@ mocha test-catalogue-service.js
 |Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
 
 
-
-## Application Theming & Styling
-
-**my-sky** uses Polymer Starter Kit. Polymer 1.0 introduces a shim for CSS custom properties. We take advantage of this in `app/styles/app-theme.html` to provide theming for your application. You can also find our presets for Material Design breakpoints in this file.
-
-[Read more](https://www.polymer-project.org/1.0/docs/devguide/styling.html) about CSS custom properties.
-
-### Styling
-1. ***main.css*** - to define styles that can be applied outside of Polymer's custom CSS properties implementation. Some of the use-cases include defining styles that you want to be applied for a splash screen, styles for your application 'shell' before it gets upgraded using Polymer or critical style blocks that you want parsed before your elements are.
-2. ***app-theme.html*** - to provide theming for your application. You can also find our presets for Material Design breakpoints in this file.
-3. ***shared-styles.html*** - to shared styles between elements and index.html.
-4. ***element styles only*** - styles specific to element. These styles should be inside the `<style></style>` inside `template`.
-
-  ```HTML  
-  <dom-module id="my-list">
-    <template>
-      <style>
-        :host {
-          display: block;
-          background-color: yellow;
-        }
-      </style>
-      <ul>
-        <template is="dom-repeat" items="{{items}}">
-          <li><span class="paper-font-body1">{{item}}</span></li>
-        </template>
-      </ul>
-    </template>
-  </dom-module>
-  ```
-
-These style files are located in the [styles folder](app/styles/).
-
-## Unit Testing
-
-Web apps built with Polymer Starter Kit come configured with support for [Web Component Tester](https://github.com/Polymer/web-component-tester) - Polymer's preferred tool for authoring and running unit tests. This makes testing your element based applications a pleasant experience.
-
-[Read more](https://github.com/Polymer/web-component-tester#html-suites) about using Web Component tester.
-
-## Dependency Management
-
-MySky uses [Bower](http://bower.io) for package management. This makes it easy to keep your elements up to date and versioned. For tooling, it uses npm to manage Node.js-based dependencies.
-
-
-## Frequently Asked Questions
-
-
-### Something has failed during installation. How do I fix this?
-
-Our most commonly reported issue is around system permissions for installing Node.js dependencies.
-We recommend following the [fixing npm permissions](https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md)
-guide to address any messages around administrator permissions being required. If you use `sudo`
-to work around these issues, this guide may also be useful for avoiding that.
-
-If you run into an exception that mentions five optional dependencies failing (or an `EEXIST` error), you
-may have run into an npm [bug](https://github.com/npm/npm/issues/6309). We recommend updating to npm 2.11.0+
-to work around this. You can do this by opening a Command Prompt/terminal and running `npm install npm@2.11.0 -g`. If you are on Windows,
-Node.js (and npm) may have been installed into `C:\Program Files\`. Updating npm by running `npm install npm@2.11.0 -g` will install npm
-into `%AppData%\npm`, but your system will still use the npm version. You can avoid this by deleting your older npm from `C:\Program Files\nodejs`
-as described [here](https://github.com/npm/npm/issues/6309#issuecomment-67549380).
-
-If the issue is to do with a failure somewhere else, you might find that due to a network issue
-a dependency failed to correctly install. We recommend running `npm cache clean` and deleting the `node_modules` directory followed by
-`npm install` to see if this corrects the problem. If not, please check the [issue tracker](https://github.com/PolymerElements/polymer-starter-kit/issues) in case
-there is a workaround or fix already posted.
-
-### I'm having trouble getting Vulcanize to fully build my project on Windows. Help?
-
-Some Windows users have run into trouble with the `elements.vulcanized.html` file in their `dist` folder
-not being correctly vulcanized. This can happen if your project is in a folder with a name containing a
-space. You can work around this issue by ensuring your path doesn't contain one.
-
-There is also an [in-flight](https://github.com/PolymerElements/polymer-starter-kit/issues/62#issuecomment-108974016) issue
-where some are finding they need to disable the `inlineCss` option in our configuration for Vulcanize
-to correctly build. We are still investigating this, however for the time-being use the workaround if
-you find your builds getting stuck here.
-
-
 ## Task List
 * **Test Cases for Services**
   1. ~~**Test Customer Location Service**~~
@@ -331,4 +219,4 @@ you find your builds getting stuck here.
 	2. ~~Show Toast with Success Message - Green Color with Icon~~
 	3. ~~Show LOGOUT~~
 * **Demo**
-	1. Create a ScreenCast
+	1. ~~Create a ScreenCast of test case execution~~
