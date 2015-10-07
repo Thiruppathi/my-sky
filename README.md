@@ -110,6 +110,10 @@ gulp
 
 Build and optimize the current project, ready for deployment. This includes linting as well as vulcanization, image, script, stylesheet and HTML optimization and minification.
 
+## Firebase
+Please create a Firebase account to access the database.
+If you need to be a collaborator access to the database, please [contact](https://twitter.com/thiruppathi) me.
+
 ## Testing Evidences
 ###Service Tests - Automated Mocha (TDD & BDD)
 All Services to and From Firebase are tested using Mocha.js.
