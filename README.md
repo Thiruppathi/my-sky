@@ -1,69 +1,42 @@
-## My Sky - Sample
-> Location based product purchase service
+## My Sky
+Location based product purchase service.
 
-## Unit Testing Scenarios
-
-### Landing Page
-
-| Test Description           | Expected Result  | Test Result |
-|:------------- |:-------------|:-----|
-| Click - Valid User | Redirect To Product Selection Page | Pass |
-|Click - Invalid User(Voldermort) | Redirect To 404 Page | Pass |
-
-### Product Selection Page
-
-| Test Description           | Expected Result  | Test Result |
-|:------------- |:-------------| -----|
-| Show Only the channels w.r.t the location | Location Based Channels | Pass |
-| Add a Channel | Update the Basket Size. Add the clicked Channel. Show a Toast.| Pass |
-| Remove a Channel | Update the Basket Size. Remove the clicked Channel. Show a Toast.| Pass |
-| Click - Check Out Button, when no Channels are added | Disabled Button; Don't redirect to Confirm Page| Pass |
-| Click - Check Out Button, when basket size > 0 | Update DB. Redirect to Confirm Page| Pass |
-|Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
-
-### Confirmation Page
-
-| Test Description           | Expected Result  | Test Result |
-|:------------- |:-------------|:-----|
-|On Page Load| Show Success Toast. Show Customer Details. Show the products selected form previous step. | Pass |
-|Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
-
-##Service Tests
-All Services to and From Firebase are tested using Mocha.js
-
-###Customer Location Service Test
-
-A CustomerLocationService is available which will take the customerID as an input and return one of the following outputs.
-
-|Customer Service| Output Description|￼
-|:------------- |:-------------||A location identifier| Customer is valid and a locationID is returned|￼|Failure exception| There was a problem retrieving the customer information|
-#### Evidence
-app/test/test-customer-location-service.js
-````shcd app/test/
-mocha test-customer-location-service.js
-````
-
-###Catalogue Service Test
-
-The locationID returned from CustomerLocationService should be passed to a CatalogueService, which must return the following products.
-￼| Category | Product | Dependent on locationID |
-|:------------- |:-------------|:-----|
-| ￼Sports| Arsenal TV | LONDON |
-| Sports| Chelsea TV | LONDON |
-￼| Sports| Liverpool TV| LIVERPOOL|
-￼| News| Sky News|  |
-￼| News| Sky Sports News|  |
-
-1. The CatalogueService will only return ArsenalTV and ChelseaTV if the locationID is LONDON. 
-2. The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.3. The CatalogueService will always return Sky News and Sky Sports News.
-
-#### Evidence
-app/test/test-catalogue-service.js
-````shcd app/test/
-mocha test-catalogue-service.js
-````
+----
+##Contents
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Technologies/Concepts Involved](#technologiesconcepts-involved)
+- [Getting Started](#getting-started)
+  - [Get the code](#get-the-code)
+  - [Install dependencies](#install-dependencies)
+    - [Quick-start](#quick-start)
+    - [Prerequisites (for everyone)](#prerequisites-for-everyone)
+  - [Development workflow](#development-workflow)
+    - [Serve / watch](#serve--watch)
+    - [Run tests](#run-tests)
+    - [Build & Vulcanize](#build-&-vulcanize)
+- [Testing Evidences](#testing-evidences)
+  - [Service Tests - Automated Mocha (TDD & BDD)](#service-tests---automated-mocha-tdd-&-bdd)
+    - [Customer Location Service Test](#customer-location-service-test)
+  - [UI Testing Scenarios - Manual](#ui-testing-scenarios---manual)
+    - [Landing Page](#landing-page)
+    - [Product Selection Page](#product-selection-page)
+    - [Confirmation Page](#confirmation-page)
+- [Application Theming & Styling](#application-theming-&-styling)
+  - [Styling](#styling)
+- [Unit Testing](#unit-testing)
+- [Dependency Management](#dependency-management)
+- [Frequently Asked Questions](#frequently-asked-questions)
+  - [Something has failed during installation. How do I fix this?](#something-has-failed-during-installation-how-do-i-fix-this)
+  - [I'm having trouble getting Vulcanize to fully build my project on Windows. Help?](#im-having-trouble-getting-vulcanize-to-fully-build-my-project-on-windows-help)
+- [TODO](#todo)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+----
 ## Technologies/Concepts Involved
 * **Front-End**
 	1. HTML5, CSS, JavaScript
@@ -86,6 +59,8 @@ mocha test-catalogue-service.js
 	* Chrome Dev Tools
 	* MoU - Markdown Editor
 	* Vulcan - Firebase Data Inspector
+
+----
 
 ## Getting Started
 
@@ -178,6 +153,74 @@ gulp
 
 Build and optimize the current project, ready for deployment. This includes linting as well as vulcanization, image, script, stylesheet and HTML optimization and minification.
 
+----
+
+## Testing Evidences
+###Service Tests - Automated Mocha (TDD & BDD)
+All Services to and From Firebase are tested using Mocha.js
+
+####Customer Location Service Test
+
+A CustomerLocationService is available which will take the customerID as an input and return one of the following outputs.
+
+|Customer Service| Output Description|￼
+|:------------- |:-------------||A location identifier| Customer is valid and a locationID is returned|￼|Failure exception| There was a problem retrieving the customer information|
+##### Evidence
+app/test/test-customer-location-service.js
+````shcd app/test/
+mocha test-customer-location-service.js
+````
+
+####Catalogue Service Test
+
+The locationID returned from CustomerLocationService should be passed to a CatalogueService, which must return the following products.
+￼|Category | Product | Dependent on locationID |
+|:------------- |:-------------|:-----|
+|￼Sports| Arsenal TV | LONDON |
+|Sports| Chelsea TV | LONDON |
+￼|Sports| Liverpool TV| LIVERPOOL|
+￼|News| Sky News|  |
+￼|News| Sky Sports News|  |
+
+1. The CatalogueService will only return ArsenalTV and ChelseaTV if the locationID is LONDON. 
+2. The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.3. The CatalogueService will always return Sky News and Sky Sports News.
+
+##### Evidence
+app/test/test-catalogue-service.js
+````shcd app/test/
+mocha test-catalogue-service.js
+````
+
+
+### UI Testing Scenarios - Manual
+
+#### Landing Page
+
+| Test Description           | Expected Result  | Test Result |
+|:------------- |:-------------|:-----|
+| Click - Valid User | Redirect To Product Selection Page | Pass |
+|Click - Invalid User(Voldermort) | Redirect To 404 Page | Pass |
+
+#### Product Selection Page
+
+| Test Description           | Expected Result  | Test Result |
+|:------------- |:-------------| -----|
+| Show Only the channels w.r.t the location | Location Based Channels | Pass |
+| Add a Channel | Update the Basket Size. Add the clicked Channel. Show a Toast.| Pass |
+| Remove a Channel | Update the Basket Size. Remove the clicked Channel. Show a Toast.| Pass |
+| Click - Check Out Button, when no Channels are added | Disabled Button; Don't redirect to Confirm Page| Pass |
+| Click - Check Out Button, when basket size > 0 | Update DB. Redirect to Confirm Page| Pass |
+|Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
+
+#### Confirmation Page
+
+| Test Description           | Expected Result  | Test Result |
+|:------------- |:-------------|:-----|
+|On Page Load| Show Success Toast. Show Customer Details. Show the products selected form previous step. | Pass |
+|Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
+
+
+
 ## Application Theming & Styling
 
 **my-sky** uses Polymer Starter Kit. Polymer 1.0 introduces a shim for CSS custom properties. We take advantage of this in `app/styles/app-theme.html` to provide theming for your application. You can also find our presets for Material Design breakpoints in this file.
@@ -255,10 +298,10 @@ to correctly build. We are still investigating this, however for the time-being 
 you find your builds getting stuck here.
 
 
-### TODO
-* **Test Cases for Services**
-  1. **Test Customer Location Service**
-  2. **Test Catalogue Service**
+## TODO
+* **Test Cases for Services**~~
+  1. ~~**Test Customer Location Service**~~
+  2. ~~**Test Catalogue Service**~~
   3. **Test CheckOut & Order Update Service**
 * **Landing Page**
 	1. ~~Generate & Add Favicon~~
