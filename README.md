@@ -112,7 +112,7 @@ Build and optimize the current project, ready for deployment. This includes lint
 
 ## Firebase
 Please create a Firebase account to access the database.
-If you need to be a collaborator access to the database, please [contact](https://twitter.com/thiruppathi) me.
+If you need to have collaborator access to the database, please [contact](https://twitter.com/thiruppathi) me.
 
 ## Testing Evidences
 ###Service Tests - Automated Mocha (TDD & BDD)
