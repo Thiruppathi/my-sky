@@ -1,0 +1,24 @@
+<dom-module id="go-home">
+
+  <style type="text/css">
+
+  </style>
+  <template>
+    <paper-button raised class="colorful" id="goHome" on-click="goHome">
+        <iron-icon icon="home"></iron-icon>
+        Home
+    </paper-button>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'go-home',
+
+      goHome: function() {
+        console.log('clicked go home:  ' + location.origin);
+        window.location = location.origin;
+        //window.location = "http://localhost:5000";
+      }
+    });
+  </script>
+</dom-module>

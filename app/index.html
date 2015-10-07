@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit" />
-  <title>Polymer Starter Kit</title>
+  <title>My Sky - Thiru</title>
   <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
@@ -44,6 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/animate.css">
   <!-- endbuild-->
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
@@ -74,6 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+          <!-- <go-home></go-home> -->
           <a data-route="home" href="/" on-click="onDataRouteClick">
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
@@ -107,16 +109,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
             <section data-route="home">
-                <customer-list></customer-list>
+              <customer-list></customer-list>
             </section>
 
             <section data-route="select-product">
-                <select-products customerid="[[params.customerid]]"></select-products>
+              <select-products customerid="[[params.customerid]]"></select-products>
             </section>
 
             <section data-route="confirm-page">
-                <h1>Confirmation Page</h1>
-                <confirm-page customerid="[[customerid]]"> </confirm-page>
+              <confirm-page customerid="[[customerid]]"> </confirm-page>
             </section>
 
 
@@ -146,6 +147,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
+
   <!-- endbuild-->
 </body>
 

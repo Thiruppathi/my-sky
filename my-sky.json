@@ -57,6 +57,13 @@
       "email" : "Oliver.Queen@domain.com",
       "locationID" : "LOC-002",
       "name" : "Oliver Queen"
+    },
+    "JVEJ8bTtGaKr0g2U9kr" : {
+      "avatar" : "",
+      "customerID" : "JVEJ8bTtGaKr0g2U9kr",
+      "email" : "Raz.Al.Ghul@domain.com",
+      "locationID" : "",
+      "name" : "Ra's Al Ghul"
     }
   },
   "location" : {
@@ -67,20 +74,6 @@
     "LOC-002" : {
       "location" : "Liverpool",
       "locationID" : "LOC-002"
-    }
-  },
-  "orders" : {
-    "ODR-001" : {
-      "customerID" : "JVEJ8bTtGaKr0g2U9ko",
-      "items" : [ {
-        "productID" : "PROD-001"
-      }, {
-        "productID" : "PROD-004"
-      }, {
-        "productID" : "PROD-005"
-      } ],
-      "orderID" : "ODR-001",
-      "total" : 165
     }
   }
 }

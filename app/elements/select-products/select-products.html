@@ -8,8 +8,8 @@
 
     #customer-image {
       border-radius: 100%;
-      width: 35px;
-      height: 35px;
+      width: 50px;
+      height: 50px;
       position: relative;
       vertical-align: middle;
     }
@@ -21,14 +21,14 @@
 
     .horizontal-section-container {
       @apply(--layout-horizontal);
-      @apply(--layout-center-justified);
+      @apply(--layout-left-justified);
       @apply(--layout-wrap);
     }
 
     .horizontal-section {
       background-color: white;
-      padding: 24px;
-      margin-right: 24px;
+      padding: 1em;
+      margin: 0.5em;
       min-width: 200px;
       @apply(--shadow-elevation-2dp);
     }
@@ -49,63 +49,120 @@
       --paper-checkbox-unchecked-ink-color: var(--paper-light-blue-900);
     }
 
-    paper-button[raised].colorful {
-      background: #4285f4;
+    paper-button[raised] {
+      background: #3F51B5;
       color: #fff;
     }
+
+    .cart-icon {
+      margin-right: 5px;
+    }
+
+    section {
+      display: block;
+      margin-bottom: 1em;
+    }
+
+    paper-button[disabled] {
+      background-color: grey;
+    }
+
+    #customerBar {
+      width: 100%;
+    }
+
+    .fullWidth {
+      width: 100%;
+    }
+
+    .right {
+      float: right;
+    }
+
+    .left {
+      float: left;
+    }
+
+    paper-toast {
+      z-index: 999;
+    }
+    .power {
+      margin-right: 10px;
+    }
+
+
   </style>
   <template>
     <firebase-document location="[[computeFbHref(customerid)]]" data="{{customer}}"></firebase-document>
     <firebase-document location="[[computeLocation(customer.locationID)]]" data="{{location}}"></firebase-document>
+
     <section>
-      <div class="customerData" id="[[customerid]]">
-        <img src={{computeProfilePic(customer)}} id="customer-image">
-        <span class="customerName">{{customer.name}}</span>
-        <span>{{location}}</span>
+      <div class="horizontal-section-container">
+        <div class="horizontal-section animated bounceInUp fullWidth" id="[[customerid]]">
+          <span class="left">
+            <iron-image style="background-color: lightgray;" sizing="contain" preload fade src="{{computeProfilePic(customer)}}" id="customer-image"></iron-image>
+            <span class="customerName">{{customer.name}}</span>
+          </span>
+          <span class="right">
+            <paper-button raised class="colorful" on-click="signOut"><iron-icon class="power" icon="icons:power-settings-new"></iron-icon>Sign Out</paper-button>
+          </span>
+
+        </div>
       </div>
     </section>
 
-    <div class="horizontal-section-container">
-      <!-- Sports -->
-      <div class="horizontal-section">
-        <h4>Sports</h4>
+    <section>
+      <div class="horizontal-section-container">
+        <!-- Sports -->
         <firebase-collection location="https://mysky.firebaseio.com/catalogue" order-by-child="category" equal-to="Sports" data="{{products}}">
         </firebase-collection>
 
-        <template is="dom-repeat" items="{{products}}" as="product">
-          <template is="dom-if" if="{{isLocation(product,customer.locationID)}}">
-            <paper-checkbox class="blue" on-change="checkBoxHandler" id="{{product.productID}}">{{product.name}}</paper-checkbox>
+        <div class="horizontal-section animated bounceInUp" id="sportsChannels">
+          <h4>Sports</h4>
+          <template is="dom-repeat" items="{{products}}" as="product">
+            <template is="dom-if" if="{{isLocation(product,customer.locationID,'Sports')}}">
+              <paper-checkbox class="blue" on-change="checkBoxHandler" id="{{product.productID}}">{{product.name}}</paper-checkbox>
+            </template>
           </template>
-        </template>
-      </div>
+          <template is="dom-if" if="{{isNandaParbat(customer.location)}}">
+            <span>No Channels Available at your location.</span>
+          </template>
+        </div>
 
-      <!-- News -->
-      <div class="horizontal-section">
-        <h4>News</h4>
+        <!-- News -->
+
         <firebase-collection location="https://mysky.firebaseio.com/catalogue" order-by-child="category" equal-to="News" data="{{newsProducts}}">
         </firebase-collection>
-
-        <template is="dom-repeat" items="{{newsProducts}}" as="newsProduct">
-          <template is="dom-if" if="{{isLocation(newsProduct,customer.locationID)}}">
-            <paper-checkbox class="blue" on-change="checkBoxHandler" id="{{newsProduct.productID}}">{{newsProduct.name}}</paper-checkbox>
+        <div class="horizontal-section animated bounceInUp" id="newsChannels">
+          <h4>News</h4>
+          <template is="dom-repeat" items="{{newsProducts}}" as="newsProduct">
+            <template is="dom-if" if="{{isLocation(newsProduct,customer.locationID,'News')}}">
+              <paper-checkbox class="blue" on-change="checkBoxHandler" id="{{newsProduct.productID}}">{{newsProduct.name}}</paper-checkbox>
+            </template>
           </template>
-        </template>
-      </div>
+        </div>
 
-      <!-- Basket -->
-      <div>
-        <div class="horizontal-section">
-          <h4>Basket&nbsp; (
-            <span class="item-style" id="noOfChannels">{{channels.length}}</span>)</h4>
-          <my-basket basket=[[channels]]> </my-basket>
-          <div id="basket"> </div>
-          <paper-button raised class="colorful" on-click="goLink">Check Out</paper-button>
-          <!-- <a data-route="confirm-page" href="[[computeHref(customer)]]" class="colorful">Check Out Link</a> -->
+        <!-- Basket -->
+        <div>
+          <div class="horizontal-section animated bounceInUp">
+            <h4>Basket&nbsp; (
+              <span class="item-style" id="noOfChannels">{{channels.length}}</span>)</h4>
+            <my-basket basket=[[channels]]> </my-basket>
+            <div id="basket">
+            </div>
+            <paper-button raised class="colorful" on-click="goLink" id="checkOut" disabled="true">
+              <iron-icon class="cart-icon" icon="icons:add-shopping-cart"></iron-icon>Check Out</paper-button>
+            <!-- <a data-route="confirm-page" href="[[computeHref(customer)]]" class="colorful">Check Out Link</a> -->
+          </div>
+
         </div>
       </div>
-    </div>
+      <section>
+<br>
+        <section>
+          <paper-toast id="basketToast"></paper-toast>
+        </section>
 
-    <span>[[reloadChecks()]]</span>
   </template>
 
   <script>
@@ -128,9 +185,6 @@
           value: []
         }
       },
-      reloadChecks: function() {
-        console.log('reloadChecks');
-      },
       computeFbHref: function(customerid) {
         return 'https://mysky.firebaseio.com/customers/' + customerid;
       },
@@ -144,8 +198,23 @@
         return customer.avatar ||
           'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAc4AAAHOCAMAAAAmOBmCAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURTKJyLvR4dLd5cfX44252GCh0Het1Onp6T2Pyt7j56TF3UmVzFSbzrDL35m/22un0oKz1j1oblAAAAwXSURBVHja7d0Hlpw6EEbhIgqR97/aNzPOx352D0kV7r+D5mtJpQKEJOIowiWAk8BJ4CRwwkngJHASOAmccBI4CZwETgInnAROAieBk8AJJ4GTwEngJHDCSeAkcBI4CZxwEjgJnAROAiecBE4CJ4ETTgIngZPASeCEk8BJ4CRwEjjhJHASOAmcBE44CZwETgIngRNOAieBk8BJonBW1di2ffdr+rZdqyrDachxbLtZ/p65e2PNcKpOrtptktczde2S4dSYeuxnOZKpH2s4VWXZJzmTqXcySsXBsNzkinRrDWfp1XKd5brM5kVNc140Ln8Zo2OGs0SafpA7MvQNnI8PzE7uy2x2iJrkzO0k92ZoazgfKmX3QR5IX8P5AGYvT8UgqIDpCdQUZ24HeTh9hvOmrI9jfhRFGc4bUk1SJtMC5+WL5ibl0tVw2p9nf0oL54X9vFlKZ6rgvCitaMie4fQxNL8O0AZO86umrRVUOWfeRFO6DOeZiXYSXRkqOA9nFH1p4TyYXjRmy3AeWTZn0Zm5gdP+svnTAtrA+clUgyjOCKf5IujnrHB+pncg2tPDabykteApaHryFDQ9dfwEzeMb0AynH02RDU5HmgrXT0HTk6cuzlEETzec9jS19fs0cTYieLrhbAaTnKrur+jhVHt/85+eNZy/pxOrUdROUMO5i930cDooahXe/lTCabQM+p4GTg9l0PdyKMPpY+FU1Y1XwbmI/axwfptqBwecOroJGjg78ZAZzo+s4iMtnG+pByecGnYr5Tk3L5oaptvinIv4yRqeMw+OOMvfWynNuYunbME5a/GVKjZn54xzCs1ZibeMkTknd5yFb60U5RzFX9q4nJNDzrLDsyRnK8LwdMPpqoOgZHgKg9PT8BRWTk/DsxznKMLw9MM5ueUsODyLcS7iN2M8zs4x5xSOsxbPWaJx9q45t2CcTlsI31PH4hx9axbbqxTinJ1zTqE4a/GeJRLn7p6zj8Q5ueccAnE2Isy2fjj3AJx9HM4pAOcQhjPCXFtoti3B2Ybg7KNwziE4pyCcWWKkicE5BuFcY3D2QTi7GJxTEE4JwVlH0SzxsqewdHq66SksnZ4Wz+c55zCcQwROiZPGP2cViHP0z7kG4mz9c/aBODv/nF0gzsE/p0RK9s5Zh+KsvHNWoThX75xtKM4WTk/ZvHN2oTg7ONmpGOIcQnGKd85Ymo+/tvswZw7GWfnmrOCEk1tkcIbsIzzMucLpibOFE0444VSRHk6atnDCCSeccMIJJ5xwwgknnLQR4IQTTm+cC5zc74QTThVx/nBJA6cnzgQnnHaTnHPOcHrijPWOyuydsw/F6f4Nslhtod075xiK0/3b17H6CIt3zlg7lcY95xSJM7nnjLRTmf1zRipte/+cke54BjgxM9IpbpV/zkhnl6QAnHFqoTkCZ5xaqI/AGacvNEbgjNMXqkNwRlk8S3zAswBny9LpiTPK03xLDM4oO88chDPGAyYlvsZahDPGEwlrFM4Yp6DWUTjTRofPE+fIXOuJMzPXeuIMMNuWmWsLcY7MtZ44/XcScihO752ELYXi9N63XWJxOn/Pc0rBOH0XQ200Tt/FUB2O0/NN7D6F4/T8+HQTj9PxXqVLATn9Ds8qIqfbxm3BwVmSs2JweuJ0+sBtycFZlLNhcHridFncFh2cZTlrBqcnzrRzZ8wTZ3bXua0jc7r7ePKeQnM6OzVqyME5ffUSxhSc01Wrr0vhOT1VQzWcjh4zaROcflq3c4LzvTfkZLpt4HQ03SqYanVwuqhuuwTnt+rWfjNhqOF01ExYEpw/Yv2p2z7B6We3Mic4/SyfShZORZypMbz7rBKcfnafa4LTTznUJzj/FJsP9nUJzj/H4ivZc4bz/8pbe56DKk1dnPbuZQ9NgtPNdkWbpjZOW57qNNVxmvJcEpx+PMcEpxvPoUpwuvHUt25q5UzNhKYjTv39hEmnplLOlHXfztbV2dPPqbsfv2nV1Mup+NXPXu01U8yZFqUF7pjgPFTgzpS0jjhT1vd4fJcTnG4W0Fb35dLOqaujoLKvZ4oz5Z79iSNONRXusOq/VBY4dVREXZ3gvGqAll5Bh9HEdTLCmfJetg+UE5zXlrjlmvJzZeUi2eFMaZwogRxxptwWqHHbnOD0soT2tanrY4wzpboH0xHng6D2MC1yPrOGDhYxbXK+gd5c5U62CiDrnG+p7uv8dYvVi2KX820RXadbBmZt95JY5nxvFe3DxStmZfp6GOd8y9JPl1ku1i+Gfc73Mdqef0Zs3isHV8IF50epe2KQTv1Y+7gMXjg/SqNl7w6MSjeUzji/TLxj2702ToduHytnv94d59dN6dK23f+wDl23t0vl8nc75fwxAVe/pvb9c71zRguccBI4SQTOep8WF1eygTONH+253YHmKtMe+wuB9ff7IV02jvn1vYutCstZ9aZetfv7RPu9YzGNITmrztiLsH+faH/+Z5Z8MEV0YL43w612bH47A6kgqCjBtPb2wI/86fXTYqDPc9ad5debfxuavao3W0TJz/96EaxtQav/vxlXZDv9MOc/H3jeagdD89v2q/HNWb1wY9nQCvrvQxv27Jfz1TNIusYEZv3KkyxPrx6i6L9c7k994L/56hfTnj0i4ynOz50+ov5kiU+cvfHo6iHqhqaB8wg+eU7DgwNU9A1N7Qf5fP4F0+dW0Cc4q4NPNKt8xTIf+szoUyfZPMB54jOr6mqiw28KP/QtgNs5zx3SP6h6b/bUa9+rB87Tn7jR81b72Xf4n5hwb+a85PvkKkDr/vSrpA/cAryX86pDRrrS25bqkl9y/zMXd3Je+W2baSy4iI6XfWNgtMt58YcWhr5ML7e+9IX93irnDd/5mx8fonm8+qDOe2/R38Y5yi159PyCqr/hPKpbv18mtjQfPF2k2W86iurOjsJNnK3cmen2MXqb5ccfsjHGef8piEN/2zqal/7mM//u8xSbml9Wofb6abdZnzik/LYNqNjV/FIoXkjarNtjx1mPZjgf/yxRty/16Qm2ffjTAaMRzjIfmRq6djy2IjXLq0fXGPAUH5rfVtOuXatXVetqbLeCnwgdDXCq+ADcx9FBbVX9Qfb9ZJr1/dCh8h82u6O+FYeaVnKD57WcLUZlPS/lHBH6pGetmBPN4v34CzmbAZ7SnoJm2fQ6OfMMTXnPyzjR1NBOuIqTDefxVOo4V1BUbFeu4aww0VHeXsJZU9Sey6aKkzLobFZFnJRBasqhCzjp7V1RDmUlnHSDLkmng5Nu0EVpVXCycGpaPs9yLjBoWj5PcrLj1LX7PMnZgaBq93mOk1atsubtKc4GgYubt0U52aNo262c4eQxzOvTFONkqtU33QpTrafpVqhqlaUuwkkD4aZ0RThpIGhsJhzlpFersnd7kDNPXPbb0j/OuXPRb0z1MGfNJde5+RTqIE/VkFAHeaqGDnFSB2mtho5w0nq/P81jnJl+kNre0AFOnt17IstDnGxSHsn0EOfGpX4k4yOcvMqpebMidBC0pn2Ak8GpengKg9PT8BQGp6fhKQxOT8NTGJyehqcwOD0NT2FwehqewuD0NDyFwelpeAqD09Pw/AQnt1JKDM/bOLnPWSLjTZwMziKZbuLkCaEyWW7h5AmhQulu4eQgxVJp7uDk2dpS6W/gpIVQLvl6Th74MtFKEHYpnvYqwi7F015FKIT0Z7uYkzcAy6a+lpNCyEgxJBRCnoqhlzg54MtKMSQUQp6KoVc4ORrTTGfoFU7uW5fPeh0nt8bKZ76Mk02nna2nsOm0kf0izsyltLP1/DcnjyHoSHMNJ3OtodlWmGs9zbbCXOtpthXmWk+z7T85uYyWZluhh+BpthX6tWbSnuekX6sn82lO7o1pSn2WkwcyNWU8y8lXADVlO8lJS0hVhpOctIR0pTrHyTbFWGNIeITP01ZF2KZYSj7DyePS2rKc4eRuirXFU+jweVo8haXT0+Ip7Do9LZ7CrtPT4insOk2lO8xJw1ZjDnNyMpTGVEc5udepMetRTpoIGtMf5aQSstdIECohT7WQUAl5qoWESshTLST0hDz1hYSP4HjqCwnvGhnLcIiTc/i0Jh/hpLC1WNoKzwlZy3iEk32K1rRHOOnYas12hJN9isWdyn8MsOoNpUlZFgAAAABJRU5ErkJggg==';
       },
-      isLocation: function(product, location) {
-        return (location === product.locationID) || (product.locationID === "");
+      isLocation: function(product, location, category) {
+        if ((location === product.locationID) || (product.locationID === "")) {
+          if (category === 'Sports') {
+            this.sportsCount = this.sportsCount + 1;
+          } else if (category === 'News') {
+            this.newsCount = this.newsCount + 1;
+          }
+          return true;
+        } else {
+          return false;
+        }
+      },
+      isNandaParbat: function(location) {
+        return (location === 'Nanda Parbat');
+      },
+      getLocation: function(location) {
+        return location || 'Nanda Parbat';
       },
       checkBoxHandler: function(e) {
         var prodKey = e.target.id;
@@ -157,9 +226,13 @@
               'name': prodValue.trim()
             }
           };
+          document.querySelector('#basketToast').innerHTML = 'Added '+ '<span style="color: #eeff41;font-weight: bold;">' + prodValue.trim() + '</span> to basket.';
+          document.querySelector('#basketToast').show();
           this.channels.push(newProduct);
           this.prodNames.push(prodValue);
         } else {
+          document.querySelector('#basketToast').innerHTML = 'Removed ' + '<span style="color: #eeff41;font-weight: bold;">' + prodValue.trim() + '</span> from basket.';
+          document.querySelector('#basketToast').show();
           this.channels = this.channels.filter(function(c) {
             return (!c.hasOwnProperty(prodKey));
           });
@@ -170,9 +243,10 @@
         }
         document.querySelector('#noOfChannels').innerHTML = this.prodNames.length;
         document.querySelector('my-basket').basket = this.channels;
-        this.updateBasket(this.channels, this.prodNames);
+        this._basketValueObserver(this.prodNames);
+        this.updateBasket(this.prodNames);
       },
-      updateBasket: function(channels, prodNames) {
+      updateBasket: function(prodNames) {
         var basket = document.querySelector('#basket');
         while (basket.firstChild) {
           basket.removeChild(basket.firstChild);
@@ -183,15 +257,16 @@
           basket.appendChild(cSpan);
         });
       },
-      goLink: function(e) {
-        console.log('Clicked Button');
+      goLink: function() {
+        console.log('Creating Order');
         var orderRef = new Firebase('https://mysky.firebaseio.com/orders');
         var orderDate = new Date().toString();
         var products = {};
 
         var newOrder = {
           'customerID': this.customerid,
-          'orderDate': orderDate
+          'orderDate': orderDate,
+          'customer': this.customer
         };
         console.log(newOrder);
         orderRef.child('lastOrder').set(newOrder);
@@ -207,6 +282,16 @@
           'orderDate': orderDate
         };
         orderRef.child('orderHistory').push(newOrder);
+        /** Clears Basket */
+        this.prodNames = [];
+        this.channels = [];
+        var w = document.getElementsByTagName('paper-checkbox');
+        for (var i = 0; i < w.length; i++) {
+          if (w[i].hasAttribute('checked')) {
+            w[i].checked = false;
+          }
+        }
+        /** Route to Confirmation Page */
         app.route = '/' + 'checkout/' + this.customerid;
         page.redirect(app.route);
       },
@@ -216,7 +301,18 @@
       computeBasketSize: function(channels) {
         var size = 0 || channels.length;
         return '(' + size + ')';
+      },
+      signOut: function() {
+        window.location = "http://localhost:5000";
+      },
+      isEmptyBasket: function() {
+        return (this.channels.size === 0);
+      },
+      _basketValueObserver: function(prodNames) {
+        var isDisabled = (prodNames.length === 0) ? true : false;
+        document.querySelector('#checkOut').disabled = isDisabled;
       }
+
 
     });
   </script>

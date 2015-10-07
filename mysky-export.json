@@ -57,6 +57,13 @@
       "email" : "Oliver.Queen@domain.com",
       "locationID" : "LOC-002",
       "name" : "Oliver Queen"
+    },
+    "JVEJ8bTtGaKr0g2U9kr" : {
+      "avatar" : "",
+      "customerID" : "JVEJ8bTtGaKr0g2U9kr",
+      "email" : "Raz.Al.Ghul@domain.com",
+      "locationID" : "",
+      "name" : "Ra's Al Ghul"
     }
   },
   "location" : {
@@ -75,7 +82,7 @@
       "orderDate" : "Mon Oct 05 2015 22:14:14 GMT+0100 (BST)",
       "products" : {
         "PROD-004": "Sky News",
-        "PROD-003": "Liverpool TV" 
+        "PROD-003": "Liverpool TV"
       }
     }
   }
