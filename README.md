@@ -1,7 +1,6 @@
 ## My Sky
 Location based product purchase service.
 
-----
 ## Technologies/Concepts Involved
 * **Front-End**
 	1. HTML5, CSS, JavaScript
@@ -24,8 +23,6 @@ Location based product purchase service.
 	* Chrome Dev Tools
 	* MoU - Markdown Editor
 	* Vulcan - Firebase Data Inspector
-
-----
 
 ## Getting Started
 
@@ -118,8 +115,6 @@ gulp
 
 Build and optimize the current project, ready for deployment. This includes linting as well as vulcanization, image, script, stylesheet and HTML optimization and minification.
 
-----
-
 ## Testing Evidences
 ###Service Tests - Automated Mocha (TDD & BDD)
 All Services to and From Firebase are tested using Mocha.js.
@@ -130,11 +125,12 @@ BDD is achieved using Expect.js
 
 A CustomerLocationService is available which will take the customerID as an input and return one of the following outputs.
 
-| Customer Service| Output Description |￼
-|:------------- |:-------------|| A location identifier| Customer is valid and a locationID is returned |￼| Failure exception| There was a problem retrieving the customer information|
-##### Evidence
-[test-customer-location-service.js](app/test/test-customer-location-service.js)
-````shcd app/test/
+#####Evidence
+
+[See Unit Test Script for Customer Location Service](app/test/test-customer-location-service.js)
+
+````sh
+cd app/test/
 mocha test-customer-location-service.js
 ````
 
@@ -143,22 +139,16 @@ mocha test-customer-location-service.js
 ####Catalogue Service Test
 
 The locationID returned from CustomerLocationService should be passed to a CatalogueService, which must return the following products.
-￼| Category | Product | Dependent on locationID |
-|:------------- |:-------------|:-----|
-|￼ Sports| Arsenal TV | LONDON |
-| Sports| Chelsea TV | LONDON |
-￼| Sports| Liverpool TV| LIVERPOOL|
-￼| News| Sky News|  |
-￼| News| Sky Sports News|  |
-
-
 
 1. The CatalogueService will only return ArsenalTV and ChelseaTV if the locationID is LONDON. 
-2. The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.3. The CatalogueService will always return Sky News and Sky Sports News.
+2. The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.
+3. The CatalogueService will always return Sky News and Sky Sports News.
 
-##### Evidence
-[test-catalogue-service.js](app/test/test-catalogue-service.js)
-````shcd app/test/
+#####Evidence
+[See Unit Test Script for Catalogue Service](app/test/test-catalogue-service.js)
+
+````sh
+cd app/test/
 mocha test-catalogue-service.js
 ````
 
