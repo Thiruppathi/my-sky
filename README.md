@@ -130,8 +130,8 @@ BDD is achieved using Expect.js
 
 A CustomerLocationService is available which will take the customerID as an input and return one of the following outputs.
 
-|Customer Service| Output Description|￼
-|:------------- |:-------------||A location identifier| Customer is valid and a locationID is returned|￼|Failure exception| There was a problem retrieving the customer information|
+| Customer Service| Output Description |￼
+|:------------- |:-------------|| A location identifier| Customer is valid and a locationID is returned |￼| Failure exception| There was a problem retrieving the customer information|
 ##### Evidence
 [test-customer-location-service.js](app/test/test-customer-location-service.js)
 ````shcd app/test/
@@ -142,14 +142,15 @@ mocha test-customer-location-service.js
 
 ####Catalogue Service Test
 
-The locationID returned from CustomerLocationService should be passed to a CatalogueService, which must return the following products.
-￼|Category | Product | Dependent on locationID |
+The locationID returned from CustomerLocationService should be passed to a CatalogueService, which must return the following products.
+￼| Category | Product | Dependent on locationID |
 |:------------- |:-------------|:-----|
-|￼Sports| Arsenal TV | LONDON |
-|Sports| Chelsea TV | LONDON |
-￼|Sports| Liverpool TV| LIVERPOOL|
-￼|News| Sky News|  |
-￼|News| Sky Sports News|  |
+|￼ Sports| Arsenal TV | LONDON |
+| Sports| Chelsea TV | LONDON |
+￼| Sports| Liverpool TV| LIVERPOOL|
+￼| News| Sky News|  |
+￼| News| Sky Sports News|  |
+
 
 
 1. The CatalogueService will only return ArsenalTV and ChelseaTV if the locationID is LONDON. 
@@ -171,7 +172,7 @@ mocha test-catalogue-service.js
 | Test Description           | Expected Result  | Test Result |
 |:------------- |:-------------|:-----|
 | Click - Valid User | Redirect To Product Selection Page | Pass |
-|Click - Invalid User(Voldermort) | Redirect To 404 Page | Pass |
+| Click - Invalid User(Voldermort) | Redirect To 404 Page | Pass |
 
 #### Product Selection Page
 
@@ -182,7 +183,7 @@ mocha test-catalogue-service.js
 | Remove a Channel | Update the Basket Size. Remove the clicked Channel. Show a Toast.| Pass |
 | Click - Check Out Button, when no Channels are added | Disabled Button; Don't redirect to Confirm Page| Pass |
 | Click - Check Out Button, when basket size > 0 | Update DB. Redirect to Confirm Page| Pass |
-|Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
+| Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
 
 #### Confirmation Page
 
