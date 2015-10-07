@@ -28,6 +28,40 @@
 |On Page Load| Show Success Toast. Show Customer Details. Show the products selected form previous step. | Pass |
 |Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
 
+##Service Tests
+All Services to and From Firebase are tested using Mocha.js
+
+###Customer Location Service Test
+
+A CustomerLocationService is available which will take the customerID as an input and return one of the following outputs.
+
+|Customer Service| Output Description|￼
+|:------------- |:-------------||A location identifier| Customer is valid and a locationID is returned|￼|Failure exception| There was a problem retrieving the customer information|
+#### Evidence
+app/test/test-customer-location-service.js
+````shcd app/test/
+mocha test-customer-location-service.js
+````
+
+###Catalogue Service Test
+
+The locationID returned from CustomerLocationService should be passed to a CatalogueService, which must return the following products.
+￼| Category | Product | Dependent on locationID |
+|:------------- |:-------------|:-----|
+| ￼Sports| Arsenal TV | LONDON |
+| Sports| Chelsea TV | LONDON |
+￼| Sports| Liverpool TV| LIVERPOOL|
+￼| News| Sky News|  |
+￼| News| Sky Sports News|  |
+
+1. The CatalogueService will only return ArsenalTV and ChelseaTV if the locationID is LONDON. 
+2. The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.3. The CatalogueService will always return Sky News and Sky Sports News.
+
+#### Evidence
+app/test/test-catalogue-service.js
+````shcd app/test/
+mocha test-catalogue-service.js
+````
 
 
 ## Technologies/Concepts Involved
