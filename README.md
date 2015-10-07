@@ -3,9 +3,9 @@ Location based product purchase service.
 
 ## Technologies/Concepts Involved
 * **Front-End**
-	1. HTML5, CSS, JavaScript
-	2. WebComponents(Polymer 1.0)
-	3. Responsive Web Design(Adaptive UI)
+	* HTML5, CSS, JavaScript
+	* WebComponents(Polymer 1.0)
+	* Responsive Web Design(Adaptive UI)
 * **Back-End**
 	* Firebase
 * **Unit Testing**
