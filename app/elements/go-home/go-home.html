@@ -1,13 +1,47 @@
 <dom-module id="go-home">
 
   <style type="text/css">
+    paper-material.paperStyle {
+      padding: 0;
+      text-align: center;
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+    }
 
+    .dataHolder.errorPaper {
+      padding: 1em;
+    }
+
+    iron-icon.big.x-scope.iron-icon-0 {
+      width: 200px;
+      height: 200px;
+    }
+
+    paper-button[raised] {
+      background: #3F51B5;
+      color: #fff;
+    }
   </style>
   <template>
-    <paper-button raised class="colorful" id="goHome" on-click="goHome">
-        <iron-icon icon="home"></iron-icon>
-        Home
-    </paper-button>
+
+
+    <paper-material elevation="1" class="paperStyle animated bounceInUp ">
+      <div class="dataHolder errorPaper">
+        <h1>Oh snap!</h1>
+        <iron-icon class="big" icon="social:mood-bad"></iron-icon>
+        <h1>Customer Not Found.</h1>
+        <span>There was a problem retrieving the customer information.</span>
+        <br>
+        <br>
+        <span>Please Select a Valid Customer.</span>
+        <!-- <paper-button raised class="colorful" id="goHome" on-click="goHome">
+          <iron-icon icon="home"></iron-icon>
+          Home
+        </paper-button> -->
+      </div>
+    </paper-material>
+
   </template>
 
   <script>

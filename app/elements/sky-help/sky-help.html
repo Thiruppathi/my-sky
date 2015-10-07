@@ -1,31 +1,12 @@
-<dom-module id="customer-list">
-  <style>
-    :host {
-      display: block;
-    }
+<dom-module id="sky-help">
 
-    paper-button.colorful {
-      color: #4285f4;
-    }
-
-    paper-button[raised].colorful {
-      background: #007878;
-      color: #fff;
-      margin: 10px;
-    }
-
-    #searchBar {
-      left: 0;
-      top: 0;
-      padding: 16px;
-    }
-
-    .break {
-      height: 1em;
-    }
-
-    paper-input {
-      width: 100%;
+  <style type="text/css">
+    paper-material.paperStyle {
+      padding: 0;
+      text-align: center;
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
     }
 
     .horizontal-section-container {
@@ -81,34 +62,37 @@
       border-color: #faebcc;
     }
 
+    .success {
+      
+    }
   </style>
   <template>
-
-
     <section>
       <div class="horizontal-section-container">
-        <div class="horizontal-section fullWidth info">
+        <div class="horizontal-section halfWidth success">
           <span class="left">
-            <iron-icon class="big" icon="icons:info"></iron-icon>
-            <strong>Heads Up!. </strong> Please login by selecting one of the following customers. These all are stub data for passing
-            <strong>customerID</strong> to Product Selection Page.</span>
+            <strong>Valid Accounts</strong> are from
+            <strong>London &amp; Liverpool</strong>.
           </span>
         </div>
       </div>
     </section>
 
-    <section class="layout horizontal wrap">
-      <firebase-collection location="https://mysky.firebaseio.com/customers" order-by-child="name" data="{{customers}}">
-      </firebase-collection>
-      <template is="dom-repeat" items="[[customers]]" as="customer" id="customersList" filter="{{_filter(filterVal)}}">
-        <customer-card customer="{{customer}}"></customer-card>
-      </template>
+    <section>
+      <div class="horizontal-section-container">
+        <div class="horizontal-section halfWidth alert">
+          <span class="left">
+            <strong> Invalid Accounts </strong> are from
+            <strong>Hell's Kitchen!</strong>
+          </span>
+        </div>
+      </div>
     </section>
   </template>
 
   <script>
     Polymer({
-      is: 'customer-list'
+      is: 'sky-help'
     });
   </script>
 </dom-module>

@@ -1,6 +1,34 @@
 ## My Sky - Sample
 > Location based product purchase service
 
+## Unit Testing Scenarios
+
+### Landing Page
+
+| Test Description           | Expected Result  | Test Result |
+|:------------- |:-------------|:-----|
+| Click - Valid User | Redirect To Product Selection Page | Pass |
+|Click - Invalid User(Voldermort) | Redirect To 404 Page | Pass |
+
+### Product Selection Page
+
+| Test Description           | Expected Result  | Test Result |
+|:------------- |:-------------| -----|
+| Show Only the channels w.r.t the location | Location Based Channels | Pass |
+| Add a Channel | Update the Basket Size. Add the clicked Channel. Show a Toast.| Pass |
+| Remove a Channel | Update the Basket Size. Remove the clicked Channel. Show a Toast.| Pass |
+| Click - Check Out Button, when no Channels are added | Disabled Button; Don't redirect to Confirm Page| Pass |
+| Click - Check Out Button, when basket size > 0 | Update DB. Redirect to Confirm Page| Pass |
+|Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
+
+### Confirmation Page
+
+| Test Description           | Expected Result  | Test Result |
+|:------------- |:-------------|:-----|
+|On Page Load| Show Success Toast. Show Customer Details. Show the products selected form previous step. | Pass |
+|Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
+
+
 
 ## Technologies/Concepts Involved
 * **Front-End**

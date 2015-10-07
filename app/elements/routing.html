@@ -27,11 +27,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       app.route = 'home';
       clearBasket();
     });
-
+    page('/help', scrollToTop, function() {
+      app.route = 'help';
+    });
     page('/404', scrollToTop, function() {
       app.route = '404';
     });
-
+    page('/bugs', scrollToTop, function() {
+      app.route = 'bugs';
+    });
     page('/:customerid', function(data) {
       app.route = 'select-product';
       app.params = data.params;

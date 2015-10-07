@@ -75,12 +75,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <!-- <go-home></go-home> -->
-          <a data-route="home" href="/" on-click="onDataRouteClick">
+
+          <a data-route="home" href="/">
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
           </a>
 
+          <a data-route="help" href="/help">
+            <iron-icon icon="info"></iron-icon>
+            <span>Info &amp; Help</span>
+          </a>
+          <a data-route="bugs" href="/bugs">
+            <iron-icon icon="bug-report"></iron-icon>
+            <span>Bug Report</span>
+          </a>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -121,17 +129,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="404">
-              <paper-material elevation="1" class="paperStyle animated bounceInUp ">
-                <div class="dataHolder errorPaper">
-                  <h1>Oh snap!</h1>
-                  <iron-icon class="big" icon="social:mood-bad"></iron-icon>
-                  <h1>Customer Not Found.</h1>
-                  <span>There was a problem retrieving the customer information.</span><br><br>
-                  <span>Please Select a Valid Customer.</span>
-                </div>
-              </paper-material>
+              <go-home></go-home>
             </section>
 
+            <section data-route="help">
+              <sky-help></sky-help>
+            </section>
+
+            <section data-route="bugs">
+              <bug-report></bug-report>
+            </section>
 
           </iron-pages>
         </div>

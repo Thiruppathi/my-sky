@@ -1,0 +1,85 @@
+<dom-module id="bug-report">
+
+  <style type="text/css">
+    paper-material.paperStyle {
+      padding: 0;
+      text-align: center;
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+    }
+    .horizontal-section-container {
+      @apply(--layout-horizontal);
+      @apply(--layout-left-justified);
+      @apply(--layout-wrap);
+    }
+
+    .horizontal-section {
+      background-color: white;
+      padding: 1em;
+      margin: 0.5em;
+      min-width: 200px;
+      @apply(--shadow-elevation-2dp);
+    }
+
+    .fullWidth {
+      width: 100%;
+    }
+
+    .halfWidth {
+      width: 100%
+    }
+
+    .left {
+      float: left;
+      line-height: 2em;
+      display: block;
+    }
+
+    .right {
+      float: right;
+      line-height: 2em;
+      display: block;
+    }
+
+    .big {
+      width: 45px;
+      height: 45px;
+      margin-right: 0.5em;
+      vertical-align: middle;
+    }
+
+    .info {
+      color: #31708f;
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+    }
+
+    .alert {
+      color: #8a6d3b;
+      background-color: #fcf8e3;
+      border-color: #faebcc;
+    }
+
+  </style>
+  <template>
+
+    <section>
+      <div class="horizontal-section-container">
+        <div class="horizontal-section halfWidth alert">
+          <span class="left">
+            <iron-icon icon="icons:bug-report"></iron-icon>
+            <strong>Ra's Al Ghul</strong> sees an empty Sports Panel; It shouldn't be displayed.
+          </span>
+        </div>
+      </div>
+    </section>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'bug-report'
+    });
+  </script>
+</dom-module>
