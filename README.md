@@ -157,7 +157,9 @@ Build and optimize the current project, ready for deployment. This includes lint
 
 ## Testing Evidences
 ###Service Tests - Automated Mocha (TDD & BDD)
-All Services to and From Firebase are tested using Mocha.js
+All Services to and From Firebase are tested using Mocha.js.
+TDD is achieved using Asset.
+BDD is achieved using Expect.js
 
 ####Customer Location Service Test
 
@@ -166,10 +168,13 @@ A CustomerLocationService is available which will take the customerID as an inpu
 |Customer Service| Output Description|￼
 |:------------- |:-------------||A location identifier| Customer is valid and a locationID is returned|￼|Failure exception| There was a problem retrieving the customer information|
 ##### Evidence
-app/test/test-customer-location-service.js
+[test-customer-location-service.js](app/test/test-customer-location-service.js)
 ````shcd app/test/
 mocha test-customer-location-service.js
 ````
+
+<a href="https://asciinema.org/a/9jg8ph0vcpcl7th45ngq97p6t" target="_blank"><img src="https://asciinema.org/a/9jg8ph0vcpcl7th45ngq97p6t.png" width="50%"/></a>
+
 
 ####Catalogue Service Test
 
@@ -186,11 +191,12 @@ The locationID returned from CustomerLocationService should be passed to a Catal
 2. The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.3. The CatalogueService will always return Sky News and Sky Sports News.
 
 ##### Evidence
-app/test/test-catalogue-service.js
+[test-catalogue-service.js](app/test/test-catalogue-service.js)app/test/test-catalogue-service.js
 ````shcd app/test/
 mocha test-catalogue-service.js
 ````
 
+<a href="https://asciinema.org/a/d1h731gqciq2d7mt0q3fn0s0h" target="_blank"><img src="https://asciinema.org/a/d1h731gqciq2d7mt0q3fn0s0h.png" width="50%"/></a>
 
 ### UI Testing Scenarios - Manual
 
@@ -298,34 +304,28 @@ to correctly build. We are still investigating this, however for the time-being 
 you find your builds getting stuck here.
 
 
-## TODO
-* **Test Cases for Services**~~
+## Task List
+* **Test Cases for Services**
   1. ~~**Test Customer Location Service**~~
   2. ~~**Test Catalogue Service**~~
-  3. **Test CheckOut & Order Update Service**
 * **Landing Page**
 	1. ~~Generate & Add Favicon~~
 	2. ~~Customer Avatar~~
 	3. ~~Create an Invalid User && Different Location~~
 	4. ~~Show Toast of GetCustomerService Failure~~
-	5. **Update Stub Data for entire Firebase
-	collection**
+	5. ~~Update Stub Data for entire Firebase collection~~
 	6. ~~Add Location Icons to London,Liverpool~~
 * **Side Bar**
-  1. Show About Author - Take to github/ or route with personal card
-  2. Show Project Documentation
-      * How To Install & Run
-      * Explain about Each Services
-      * Test Cases
-      * Tools Used
+  1. ~~Show Info & Help~~
+  2. ~~Show Project Documentation~~
+  3. Firebase Instructions
 * **Product Selection Page**
   1. ~~Uncheck all checkboxes onload~~
   2. ~~Align Sports/News/Basket Cards~~
   3. ~~Show LOGOUT options~~
-  4. **Google Now Wallpaper on Background**
-  5. ~~Show animated checkbox~~
-  6. ~~Show animation when basket updated~~ added toast
-  7. ~~VALIDATE Before Checkout; if Invlaid Disable ~~
+  4. ~~Show animated checkbox~~
+  5. ~~Show animation when basket updated~~ added toast
+  6. ~~VALIDATE Before Checkout; if Invlaid Disable ~~
 * **Confirmation Page**
 	1. ~~Show Customer ID & Details~~
 	2. ~~Show Toast with Success Message - Green Color with Icon~~
