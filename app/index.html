@@ -120,6 +120,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <confirm-page customerid="[[customerid]]"> </confirm-page>
             </section>
 
+            <section data-route="404">
+              <paper-material elevation="1" class="paperStyle animated bounceInUp ">
+                <div class="dataHolder errorPaper">
+                  <h1>Oh snap!</h1>
+                  <iron-icon class="big" icon="social:mood-bad"></iron-icon>
+                  <h1>Customer Not Found.</h1>
+                  <span>There was a problem retrieving the customer information.</span><br><br>
+                  <span>Please Select a Valid Customer.</span>
+                </div>
+              </paper-material>
+            </section>
+
 
           </iron-pages>
         </div>

@@ -8,41 +8,39 @@
   2. **Test Catalogue Service**
   3. **Test CheckOut & Order Update Service**
 * **Landing Page**
-	1. Generate & Add Favicon
-	2. Customer Avatar
-	3. **Create an Invalid User && Different Location**
-	4. **Show Toast of GetCustomerService Failure**
-	5. **Update Stub Data for entire Firebase 
+	1. ~~Generate & Add Favicon~~
+	2. ~~Customer Avatar~~
+	3. ~~Create an Invalid User && Different Location~~
+	4. ~~Show Toast of GetCustomerService Failure~~
+	5. **Update Stub Data for entire Firebase
 	collection**
-	6. **Add Location Icons to London,Liverpool**
+	6. ~~Add Location Icons to London,Liverpool~~
 * **Side Bar**
-  1. Show LOGOUT Option - Do Hard Reload
-  2. Show About Author - Take to github/ or route with personal card
-  3. Show Project Documentation
+  1. Show About Author - Take to github/ or route with personal card
+  2. Show Project Documentation
       * How To Install & Run
       * Explain about Each Services
       * Test Cases
       * Tools Used
 * **Product Selection Page**
-  1. **Uncheck all checkboxes onload**
-  2. **Align Sports/News/Basket Cards**
-  3. Show LOGOUT options
+  1. ~~Uncheck all checkboxes onload~~
+  2. ~~Align Sports/News/Basket Cards~~
+  3. ~~Show LOGOUT options~~
   4. **Google Now Wallpaper on Background**
-  5. **Show animated checkbox**
-  6. **Show animation when basket updated**
-  7. **VALIDATE Before Checkout; if Invlaid Disable** 
+  5. ~~Show animated checkbox~~
+  6. ~~Show animation when basket updated~~ added toast
+  7. ~~VALIDATE Before Checkout; if Invlaid Disable ~~
 * **Confirmation Page**
-	1. Show Customer ID & Details
-	2. Show Toast with Success Message - Green Color with Icon
-	3. Show LOGOUT
-	4. SIGN IN as different user
+	1. ~~Show Customer ID & Details~~
+	2. ~~Show Toast with Success Message - Green Color with Icon~~
+	3. ~~Show LOGOUT~~
 * **Demo**
 	1. Create a ScreenCast
-	2. 
-	
+	2.
+
 ## Requirement Document
 [Download](docs/Product Selection UT.pdf)
-	
+
 ## Technologies/Concepts Involved
 * **Front-End**
 	1. HTML5, CSS, JavaScript
@@ -78,7 +76,7 @@ To run this application you need to:
 
 ### Get the code
 
-[Download](https://github.com/thiruppathi/my-sky) and extract my-sky to where you want to work. 
+[Download](https://github.com/thiruppathi/my-sky) and extract my-sky to where you want to work.
 
 ### Install dependencies
 
@@ -169,7 +167,7 @@ Build and optimize the current project, ready for deployment. This includes lint
 3. ***shared-styles.html*** - to shared styles between elements and index.html.
 4. ***element styles only*** - styles specific to element. These styles should be inside the `<style></style>` inside `template`.
 
-  ```HTML
+  ```HTML  
   <dom-module id="my-list">
     <template>
       <style>

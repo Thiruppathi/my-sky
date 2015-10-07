@@ -12,3 +12,20 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
+
+    paper-material.paperStyle.animated.bounceInUp.x-scope.paper-material-0 {
+      padding:0;
+      text-align: center;
+      color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    }
+
+    .dataHolder.errorPaper {
+      padding: 1em;
+    }
+
+    iron-icon.big.x-scope.iron-icon-0 {
+      width: 200px;
+      height: 200px;
+    }

@@ -28,15 +28,6 @@
   </style>
   <template>
 
-    <!-- <section>
-      <div class="horizontal layout end" id="searchBar">
-        <iron-icon icon="search"  style="margin: 0 10px 6px 0;"></iron-icon>
-        <paper-input is="iron-input" no-label-float label="Search Customer" value="{{filterVal::input}}" autofocus>
-        </paper-input>
-      </div>
-    </section> -->
-
-
     <section class="layout horizontal wrap">
       <h1>Select a Customer from a preffered lcoation.</h1>
     </section>
@@ -56,17 +47,7 @@
 
   <script>
     Polymer({
-      is: 'customer-list',
-
-      _filter: function(val) {
-        return function(customer) {
-                if (!val) return true;
-                if (!customer) return false;
-                return (customer.name  && ~customer.name.toLowerCase().indexOf(val.toLowerCase()))  ||
-                       (customer.email && ~customer.email.toLowerCase().indexOf(val.toLowerCase()));
-              };
-      }
-
+      is: 'customer-list'
     });
   </script>
 </dom-module>
