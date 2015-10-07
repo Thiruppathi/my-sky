@@ -2,9 +2,6 @@
 > Location based product purchase service
 
 
-## Requirement Document
-[Download](docs/Product Selection UT.pdf)
-
 ## Technologies/Concepts Involved
 * **Front-End**
 	1. HTML5, CSS, JavaScript
@@ -13,7 +10,7 @@
 * **Back-End**
 	* Firebase
 * **Unit Testing**
-	1. Web Ccomponent Tester
+	1. Web Component Tester
 * **Task Runners, Build Process & Development Workflow**
 	*  **Polymer Starter Kit** which makes use of Gulp, bower, npm, browser-sync, vulcanize, etc.,
 * **Source Control**
