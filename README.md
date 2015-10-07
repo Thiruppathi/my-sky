@@ -1,42 +1,6 @@
-![](sky.png)
-## My Sky
+## My Sky - Sample
 > Location based product purchase service
 
-### TODO
-* **Test Cases for Services**
-  1. **Test Customer Location Service**
-  2. **Test Catalogue Service**
-  3. **Test CheckOut & Order Update Service**
-* **Landing Page**
-	1. ~~Generate & Add Favicon~~
-	2. ~~Customer Avatar~~
-	3. ~~Create an Invalid User && Different Location~~
-	4. ~~Show Toast of GetCustomerService Failure~~
-	5. **Update Stub Data for entire Firebase
-	collection**
-	6. ~~Add Location Icons to London,Liverpool~~
-* **Side Bar**
-  1. Show About Author - Take to github/ or route with personal card
-  2. Show Project Documentation
-      * How To Install & Run
-      * Explain about Each Services
-      * Test Cases
-      * Tools Used
-* **Product Selection Page**
-  1. ~~Uncheck all checkboxes onload~~
-  2. ~~Align Sports/News/Basket Cards~~
-  3. ~~Show LOGOUT options~~
-  4. **Google Now Wallpaper on Background**
-  5. ~~Show animated checkbox~~
-  6. ~~Show animation when basket updated~~ added toast
-  7. ~~VALIDATE Before Checkout; if Invlaid Disable ~~
-* **Confirmation Page**
-	1. ~~Show Customer ID & Details~~
-	2. ~~Show Toast with Success Message - Green Color with Icon~~
-	3. ~~Show LOGOUT~~
-* **Demo**
-	1. Create a ScreenCast
-	2.
 
 ## Requirement Document
 [Download](docs/Product Selection UT.pdf)
@@ -232,60 +196,37 @@ to correctly build. We are still investigating this, however for the time-being 
 you find your builds getting stuck here.
 
 
-### How do I add new JavaScript files to Starter Kit so they're picked up by the build process?
-
-At the bottom of `app/index.html`, you will find a build block that can be used to include additional
-scripts for your app. Build blocks are just normal script tags that are wrapped in a HTML
-comment that indicates where to concatenate and minify their final contents to.
-
-Below, we've added in `script2.js` and `script3.js` to this block. The line
-`<!-- build:js scripts/app.js -->` specifies that these scripts will be squashed into `scripts/app.js`
-during a build.
-
-```html
-<!-- build:js scripts/app.js -->
-<script src="scripts/app.js"></script>
-<script src="scripts/script2.js"></script>
-<script src="scripts/script3.js"></script>
-<!-- endbuild-->
-```
-
-If you are not using the build-blocks, but still wish for additional files (e.g scripts or stylesheets) to be included in the final `dist` directory, you will need to either copy these files as part of the gulpfile.js build process (see the `copy` task for how to automate this) or manually copy the files.
-
-
-### If you require more granular configuration of Vulcanize than polybuild provides you an option by:
-
-1. Copy code below
-2. Then replace `gulp.task('vulcanize', function () {...` entire gulp vulcanize task code in `gulpfile.js`
-
-```javascript
-// Vulcanize granular configuration
-gulp.task('vulcanize', function () {
-  var DEST_DIR = 'dist/elements';
-  return gulp.src('dist/elements/elements.vulcanized.html')
-    .pipe($.vulcanize({
-      stripComments: true,
-      inlineCss: true,
-      inlineScripts: true
-    }))
-    .pipe(gulp.dest(DEST_DIR))
-    .pipe($.size({title: 'vulcanize'}));
-});
-```
-
-
-
-### Included out of the box:
-
-* [Polymer](http://polymer-project.org), [Paper](https://elements.polymer-project.org/browse?package=paper-elements), [Iron](https://elements.polymer-project.org/browse?package=iron-elements) and [Neon](https://elements.polymer-project.org/browse?package=neon-elements) elements
-* [Material Design](http://www.google.com/design/spec/material-design/introduction.html) layout
-* Routing with [Page.js](https://visionmedia.github.io/page.js/)
-* Unit testing with [Web Component Tester](https://github.com/Polymer/web-component-tester)
-* Optional offline setup through [Platinum](https://elements.polymer-project.org/browse?package=platinum-elements) Service Worker elements
-* End-to-end Build Tooling (including [Vulcanize](https://github.com/Polymer/vulcanize))
-
-
-
-## About Author
-
-[Thiru](thiru.github.io) | [@thiruppathi](twitter.com/thiruppathi)
+### TODO
+* **Test Cases for Services**
+  1. **Test Customer Location Service**
+  2. **Test Catalogue Service**
+  3. **Test CheckOut & Order Update Service**
+* **Landing Page**
+	1. ~~Generate & Add Favicon~~
+	2. ~~Customer Avatar~~
+	3. ~~Create an Invalid User && Different Location~~
+	4. ~~Show Toast of GetCustomerService Failure~~
+	5. **Update Stub Data for entire Firebase
+	collection**
+	6. ~~Add Location Icons to London,Liverpool~~
+* **Side Bar**
+  1. Show About Author - Take to github/ or route with personal card
+  2. Show Project Documentation
+      * How To Install & Run
+      * Explain about Each Services
+      * Test Cases
+      * Tools Used
+* **Product Selection Page**
+  1. ~~Uncheck all checkboxes onload~~
+  2. ~~Align Sports/News/Basket Cards~~
+  3. ~~Show LOGOUT options~~
+  4. **Google Now Wallpaper on Background**
+  5. ~~Show animated checkbox~~
+  6. ~~Show animation when basket updated~~ added toast
+  7. ~~VALIDATE Before Checkout; if Invlaid Disable ~~
+* **Confirmation Page**
+	1. ~~Show Customer ID & Details~~
+	2. ~~Show Toast with Success Message - Green Color with Icon~~
+	3. ~~Show LOGOUT~~
+* **Demo**
+	1. Create a ScreenCast
