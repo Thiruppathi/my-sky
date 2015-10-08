@@ -11,8 +11,12 @@
       padding: 1em;
       min-width: 200px;
       min-height: 200px;
+
+      width:250px;
+      height: 250px;
       @apply(--shadow-elevation-2dp);
       text-align: center;
+      vertical-align: middle;
     }
 
     a {
@@ -61,24 +65,23 @@
     }
   </style>
   <template>
-
     <section>
       <div class="horizontal-section-container">
-        <a href="https://github.com/Thiruppathi/my-sky/" class="instructionLink" target="_blank">
+        <a href="https://github.com/Thiruppathi/my-sky/" class="instructionLink animated bounceInUp" target="_blank">
           <div class="horizontal-section instruction">
             <iron-icon class="big" icon="description"></iron-icon>
             <h1>Instructions</h1>
           </div>
         </a>
 
-        <a href="https://github.com/Thiruppathi/my-sky/archive/master.zip" class="codeLink">
+        <a href="https://github.com/Thiruppathi/my-sky/archive/master.zip" class="codeLink animated bounceInUp">
           <div class="horizontal-section code">
             <iron-icon class="big" icon="code"></iron-icon>
             <h1>Source Code</h1>
           </div>
         </a>
 
-        <a href="/" class="demoLink">
+        <a href="/" class="demoLink animated bounceInUp" >
           <div class="horizontal-section demo">
             <iron-icon class="big" icon="visibility"></iron-icon>
             <h1>Demo</h1>
