@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>My-sky by Thiruppathi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">My-sky</h1>
+      <h2 class="project-tagline">Location Based Product Selection</h2>
+      <a href="https://github.com/Thiruppathi/my-sky" class="btn">View on GitHub</a>
+      <a href="https://github.com/Thiruppathi/my-sky/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Thiruppathi/my-sky/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="my-sky" class="anchor" href="#my-sky" aria-hidden="true"><span class="octicon octicon-link"></span></a>My Sky</h2>
+
+<p>Location based product purchase service.</p>
+
+<h2>
+<a id="technologiesconcepts-involved" class="anchor" href="#technologiesconcepts-involved" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technologies/Concepts Involved</h2>
+
+<ul>
+<li>
+<strong>Front-End</strong>
+
+<ul>
+<li>HTML5, CSS, JavaScript</li>
+<li>WebComponents(Polymer 1.0)</li>
+<li>Responsive Web Design(Adaptive UI)</li>
+</ul>
+</li>
+<li>
+<strong>Back-End</strong>
+
+<ul>
+<li>Firebase</li>
+</ul>
+</li>
+<li>
+<strong>Unit Testing</strong>
+
+<ul>
+<li>Mocha(TDD,BDD), Web Component Tester</li>
+</ul>
+</li>
+<li>
+<strong>Task Runners, Build Process &amp; Development Workflow</strong>
+
+<ul>
+<li> <strong>Polymer Starter Kit</strong> which makes use of Gulp, bower, npm, browser-sync, vulcanize, etc.,</li>
+</ul>
+</li>
+<li>
+<strong>Source Control</strong>
+
+<ul>
+<li>GitHub</li>
+</ul>
+</li>
+<li>
+<strong>IDE &amp; Dev Tools</strong>
+
+<ul>
+<li>Atom</li>
+<li>Chrome Dev Tools</li>
+<li>MoU - Markdown Editor</li>
+<li>Vulcan - Firebase Data Inspector</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>To run this application you need to:</p>
+
+<ol>
+<li>Get a copy of the code.</li>
+<li>Install the dependencies if you don't already have them.</li>
+<li>Run the Application</li>
+</ol>
+
+<h3>
+<a id="get-the-code" class="anchor" href="#get-the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get the code</h3>
+
+<p><a href="https://github.com/Thiruppathi/my-sky/archive/master.zip">Download</a> and extract my-sky to where you want to work.</p>
+
+<h3>
+<a id="install-dependencies" class="anchor" href="#install-dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install dependencies</h3>
+
+<h4>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick-start</h4>
+
+<p>With Node.js installed, run the following one liner from the root of your my-sky download:</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install -g gulp bower <span class="pl-k">&amp;&amp;</span> npm install <span class="pl-k">&amp;&amp;</span> bower install</pre></div>
+
+<h4>
+<a id="prerequisites-for-everyone" class="anchor" href="#prerequisites-for-everyone" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites (for everyone)</h4>
+
+<p><strong>my-sky</strong> requires the following major dependencies:</p>
+
+<ul>
+<li>Node.js, used to run JavaScript tools from the command line.</li>
+<li>npm, the node package manager, installed with Node.js and used to install Node.js packages.</li>
+<li>gulp, a Node.js-based build tool.</li>
+<li>bower, a Node.js-based package manager used to install front-end packages (like Polymer).</li>
+</ul>
+
+<p><strong>To install dependencies:</strong></p>
+
+<p>1)  Check your Node.js version.</p>
+
+<div class="highlight highlight-source-shell"><pre>node --version</pre></div>
+
+<p>The version should be at or above 0.12.x.</p>
+
+<p>2)  If you don't have Node.js installed, or you have a lower version, go to <a href="https://nodejs.org">nodejs.org</a> and click on the big green Install button.</p>
+
+<p>3)  Install <code>gulp</code> and <code>bower</code> globally.</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install -g gulp bower</pre></div>
+
+<p>This lets you run <code>gulp</code> and <code>bower</code> from the command line.</p>
+
+<p>4)  Install the starter kit's local <code>npm</code> and <code>bower</code> dependencies.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> my-sky <span class="pl-k">&amp;&amp;</span> npm install <span class="pl-k">&amp;&amp;</span> bower install</pre></div>
+
+<p>This installs the polymer-element sets (Paper, Iron, Platinum) and tools <strong>my-sky</strong> requires to build and serve apps.</p>
+
+<h3>
+<a id="development-workflow" class="anchor" href="#development-workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development workflow</h3>
+
+<h4>
+<a id="serve--watch" class="anchor" href="#serve--watch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Serve / watch</h4>
+
+<div class="highlight highlight-source-shell"><pre>gulp serve</pre></div>
+
+<p>This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.</p>
+
+<p>gulp.js uses <strong>browser-sync</strong>, which enables to test the Responsiveness of the page, simultaneously across many devices for different viewports.</p>
+
+<h4>
+<a id="build--vulcanize" class="anchor" href="#build--vulcanize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build &amp; Vulcanize</h4>
+
+<div class="highlight highlight-source-shell"><pre>gulp</pre></div>
+
+<p>Build and optimize the current project, ready for deployment. This includes linting as well as vulcanization, image, script, stylesheet and HTML optimization and minification.</p>
+
+<h2>
+<a id="firebase" class="anchor" href="#firebase" aria-hidden="true"><span class="octicon octicon-link"></span></a>Firebase</h2>
+
+<p>Please create a <a href="https://www.firebase.com/">Firebase</a> account to access the database.
+If you need to have collaborator access to the database, please <a href="https://twitter.com/thiruppathi">contact</a> me.</p>
+
+<h2>
+<a id="testing-evidences" class="anchor" href="#testing-evidences" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing Evidences</h2>
+
+<h3>
+<a id="service-tests---automated-mocha-tdd--bdd" class="anchor" href="#service-tests---automated-mocha-tdd--bdd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Service Tests - Automated Mocha (TDD &amp; BDD)</h3>
+
+<p>All Services to and From Firebase are tested using Mocha.js.
+TDD is achieved using Asset.
+BDD is achieved using Expect.js</p>
+
+<h4>
+<a id="customer-location-service-test" class="anchor" href="#customer-location-service-test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customer Location Service Test</h4>
+
+<p>A CustomerLocationService is available which will take the customerID as an input and return one of the following outputs.</p>
+
+<h5>
+<a id="evidence" class="anchor" href="#evidence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evidence</h5>
+
+<p><a href="app/test/test-customer-location-service.js">See Unit Test Script for Customer Location Service</a></p>
+
+<h5>
+<a id="execution" class="anchor" href="#execution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execution</h5>
+
+<p>Execute the test throgh following command.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> app/test/
+mocha <span class="pl-c1">test</span>-customer-location-service.js</pre></div>
+
+<p><a href="https://asciinema.org/a/9jg8ph0vcpcl7th45ngq97p6t" target="_blank"><img src="https://asciinema.org/a/9jg8ph0vcpcl7th45ngq97p6t.png" width="705"></a></p>
+
+<h4>
+<a id="catalogue-service-test" class="anchor" href="#catalogue-service-test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Catalogue Service Test</h4>
+
+<p>The locationID returned from CustomerLocationService should be passed to a CatalogueService, which must return the following products.</p>
+
+<ol>
+<li>The CatalogueService will only return ArsenalTV and ChelseaTV if the locationID is LONDON. </li>
+<li>The CatalogueService will only return LiverpoolTV if the locationID is LIVERPOOL.</li>
+<li>The CatalogueService will always return Sky News and Sky Sports News.</li>
+</ol>
+
+<h5>
+<a id="evidence-1" class="anchor" href="#evidence-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Evidence</h5>
+
+<p><a href="app/test/test-catalogue-service.js">See Unit Test Script for Catalogue Service</a></p>
+
+<h5>
+<a id="execution-1" class="anchor" href="#execution-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Execution</h5>
+
+<p>Execute the test throgh following command.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> app/test/
+mocha <span class="pl-c1">test</span>-catalogue-service.js</pre></div>
+
+<p><a href="https://asciinema.org/a/d1h731gqciq2d7mt0q3fn0s0h" target="_blank"><img src="https://asciinema.org/a/d1h731gqciq2d7mt0q3fn0s0h.png" width="705"></a></p>
+
+<h3>
+<a id="ui-testing-scenarios---manual" class="anchor" href="#ui-testing-scenarios---manual" aria-hidden="true"><span class="octicon octicon-link"></span></a>UI Testing Scenarios - Manual</h3>
+
+<h4>
+<a id="landing-page" class="anchor" href="#landing-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Landing Page</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">Test Description</th>
+<th align="left">Expected Result</th>
+<th align="left">Test Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Click - Valid User</td>
+<td align="left">Redirect To Product Selection Page</td>
+<td align="left">Pass</td>
+</tr>
+<tr>
+<td align="left">Click - Invalid User(Voldermort)</td>
+<td align="left">Redirect To 404 Page</td>
+<td align="left">Pass</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="product-selection-page" class="anchor" href="#product-selection-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Product Selection Page</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">Test Description</th>
+<th align="left">Expected Result</th>
+<th>Test Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Show Only the channels w.r.t the location</td>
+<td align="left">Location Based Channels</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td align="left">Add a Channel</td>
+<td align="left">Update the Basket Size. Add the clicked Channel. Show a Toast.</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td align="left">Remove a Channel</td>
+<td align="left">Update the Basket Size. Remove the clicked Channel. Show a Toast.</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td align="left">Click - Check Out Button, when no Channels are added</td>
+<td align="left">Disabled Button; Don't redirect to Confirm Page</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td align="left">Click - Check Out Button, when basket size &gt; 0</td>
+<td align="left">Update DB. Redirect to Confirm Page</td>
+<td>Pass</td>
+</tr>
+<tr>
+<td align="left">Click - SignOut</td>
+<td align="left">Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page</td>
+<td>Pass</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="confirmation-page" class="anchor" href="#confirmation-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Confirmation Page</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">Test Description</th>
+<th align="left">Expected Result</th>
+<th align="left">Test Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">On Page Load</td>
+<td align="left">Show Success Toast. Show Customer Details. Show the products selected form previous step.</td>
+<td align="left">Pass</td>
+</tr>
+<tr>
+<td align="left">Click - SignOut</td>
+<td align="left">Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page</td>
+<td align="left">Pass</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="known-issuesbugs" class="anchor" href="#known-issuesbugs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Known Issues/Bugs</h4>
+
+<ul>
+<li><p>On Product-Selection Page, When the customer doesn't have any sports channel for his location, he would be able to see a blank panel. Expected result is hiding the panel, when there are no sports channel available for his location.</p></li>
+<li><p>Users are requested to Sign Out after completing a Order. As the customer id is maintained across the page, the selected channels for one customer can appear for another customer.</p></li>
+</ul>
+
+<h2>
+<a id="task-list" class="anchor" href="#task-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>Task List</h2>
+
+<ul>
+<li>
+<strong>Test Cases for Services</strong>
+
+<ol>
+<li><del><strong>Test Customer Location Service</strong></del></li>
+<li><del><strong>Test Catalogue Service</strong></del></li>
+</ol>
+</li>
+<li>
+<strong>Landing Page</strong>
+
+<ol>
+<li><del>Generate &amp; Add Favicon</del></li>
+<li><del>Customer Avatar</del></li>
+<li><del>Create an Invalid User &amp;&amp; Different Location</del></li>
+<li><del>Show Toast of GetCustomerService Failure</del></li>
+<li><del>Update Stub Data for entire Firebase collection</del></li>
+<li><del>Add Location Icons to London,Liverpool</del></li>
+</ol>
+</li>
+<li>
+<strong>Side Bar</strong>
+
+<ol>
+<li><del>Show Info &amp; Help</del></li>
+<li><del>Show Project Documentation</del></li>
+<li>Firebase Instructions</li>
+</ol>
+</li>
+<li>
+<strong>Product Selection Page</strong>
+
+<ol>
+<li><del>Uncheck all checkboxes onload</del></li>
+<li><del>Align Sports/News/Basket Cards</del></li>
+<li><del>Show LOGOUT options</del></li>
+<li><del>Show animated checkbox</del></li>
+<li><del>Show toast when basket update</del></li>
+<li><del>VALIDATE Before Checkout; if Invlaid Disable</del></li>
+</ol>
+</li>
+<li>
+<strong>Confirmation Page</strong>
+
+<ol>
+<li><del>Show Customer ID &amp; Details</del></li>
+<li><del>Show Toast with Success Message - Green Color with Icon</del></li>
+<li><del>Show LOGOUT</del></li>
+</ol>
+</li>
+<li>
+<strong>Demo</strong>
+
+<ol>
+<li><del>Create a ScreenCast of test case execution</del></li>
+</ol>
+</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Thiruppathi/my-sky">My-sky</a> is maintained by <a href="https://github.com/Thiruppathi">Thiruppathi</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
