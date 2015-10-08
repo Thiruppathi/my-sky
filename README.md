@@ -31,7 +31,7 @@ To run this application you need to:
 
 ### Get the code
 
-[Download](https://github.com/thiruppathi/my-sky) and extract my-sky to where you want to work.
+[Download](https://github.com/Thiruppathi/my-sky/archive/master.zip) and extract my-sky to where you want to work.
 
 ### Install dependencies
 
@@ -92,15 +92,6 @@ This outputs an IP address you can use to locally test and another that can be u
 
 gulp.js uses **browser-sync**, which enables to test the Responsiveness of the page, simultaneously across many devices for different viewports.
 
-#### Run tests
-
-```sh
-gulp test:local
-```
-
-This runs the unit tests defined in the `app/test` directory through [web-component-tester](https://github.com/Polymer/web-component-tester).
-
-To run tests Java 7 or higher is required. To update Java go to http://www.oracle.com/technetwork/java/javase/downloads/index.html and download ***JDK*** and install it.
 
 #### Build & Vulcanize
 
@@ -111,7 +102,7 @@ gulp
 Build and optimize the current project, ready for deployment. This includes linting as well as vulcanization, image, script, stylesheet and HTML optimization and minification.
 
 ## Firebase
-Please create a Firebase account to access the database.
+Please create a [Firebase](https://www.firebase.com/) account to access the database.
 If you need to have collaborator access to the database, please [contact](https://twitter.com/thiruppathi) me.
 
 ## Testing Evidences
@@ -127,6 +118,9 @@ A CustomerLocationService is available which will take the customerID as an inpu
 #####Evidence
 
 [See Unit Test Script for Customer Location Service](app/test/test-customer-location-service.js)
+
+#####Execution
+Execute the test throgh following command.
 
 ````sh
 cd app/test/
@@ -145,6 +139,9 @@ The locationID returned from CustomerLocationService should be passed to a Catal
 
 #####Evidence
 [See Unit Test Script for Catalogue Service](app/test/test-catalogue-service.js)
+
+#####Execution
+Execute the test throgh following command.
 
 ````sh
 cd app/test/
@@ -180,6 +177,12 @@ mocha test-catalogue-service.js
 |:------------- |:-------------|:-----|
 |On Page Load| Show Success Toast. Show Customer Details. Show the products selected form previous step. | Pass |
 |Click - SignOut| Clear the Basket. Clear the CheckBox Selection. Redirect To Landing Page | Pass |
+
+#### Known Issues/Bugs
+
+* On Product-Selection Page, When the customer doesn't have any sports channel for his location, he would be able to see a blank panel. Expected result is hiding the panel, when there are no sports channel available for his location.
+
+* Users are requested to Sign Out after completing a Order. As the customer id is maintained across the page, the selected channels for one customer can appear for another customer.
 
 
 ## Task List

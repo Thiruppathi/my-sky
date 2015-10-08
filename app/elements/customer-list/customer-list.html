@@ -84,19 +84,6 @@
   </style>
   <template>
 
-
-    <section>
-      <div class="horizontal-section-container">
-        <div class="horizontal-section fullWidth info">
-          <span class="left">
-            <iron-icon class="big" icon="icons:info"></iron-icon>
-            <strong>Heads Up!. </strong> Please login by selecting one of the following customers. These all are stub data for passing
-            <strong>customerID</strong> to Product Selection Page.</span>
-          </span>
-        </div>
-      </div>
-    </section>
-
     <section class="layout horizontal wrap">
       <firebase-collection location="https://mysky.firebaseio.com/customers" order-by-child="name" data="{{customers}}">
       </firebase-collection>

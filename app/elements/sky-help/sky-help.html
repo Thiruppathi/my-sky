@@ -1,91 +1,90 @@
 <dom-module id="sky-help">
 
   <style type="text/css">
-    paper-material.paperStyle {
-      padding: 0;
-      text-align: center;
-      color: #a94442;
-      background-color: #f2dede;
-      border-color: #ebccd1;
-    }
-
     .horizontal-section-container {
       @apply(--layout-horizontal);
-      @apply(--layout-left-justified);
+      @apply(--layout-center-justified);
       @apply(--layout-wrap);
     }
 
     .horizontal-section {
-      background-color: white;
       padding: 1em;
-      margin: 0.5em;
       min-width: 200px;
+      min-height: 200px;
       @apply(--shadow-elevation-2dp);
+      text-align: center;
     }
 
-    .fullWidth {
-      width: 100%;
+    a {
+      text-decoration: none;
+      margin: 1em;
+      color: white;
     }
 
-    .halfWidth {
-      width: 100%
+    a:hover {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
 
-    .left {
-      float: left;
-      line-height: 2em;
-      display: block;
+    a.instructionLink {
+      background-color: #29b6f6;
     }
 
-    .right {
-      float: right;
-      line-height: 2em;
-      display: block;
+    a.instructionLink:hover {
+      background-color: #039be5;
+    }
+
+    a.codeLink {
+      background-color: #ec407a;
+    }
+
+    a.codeLink:hover {
+      background-color: #d81b60;
+    }
+
+    a.demoLink {
+      background-color: #9ccc65;
+    }
+
+    a.demoLink:hover {
+      background-color: #7cb342;
     }
 
     .big {
-      width: 45px;
-      height: 45px;
-      margin-right: 0.5em;
-      vertical-align: middle;
+      width: 150px;
+      height: 150px;
     }
 
-    .info {
-      color: #31708f;
-      background-color: #d9edf7;
-      border-color: #bce8f1;
-    }
-
-    .alert {
-      color: #8a6d3b;
-      background-color: #fcf8e3;
-      border-color: #faebcc;
-    }
-
-    .success {
-      
+    h1 {
+      font-size: 25px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
   </style>
   <template>
-    <section>
-      <div class="horizontal-section-container">
-        <div class="horizontal-section halfWidth success">
-          <span class="left">
-            <strong>Valid Accounts</strong> are from
-            <strong>London &amp; Liverpool</strong>.
-          </span>
-        </div>
-      </div>
-    </section>
 
     <section>
       <div class="horizontal-section-container">
-        <div class="horizontal-section halfWidth alert">
-          <span class="left">
-            <strong> Invalid Accounts </strong> are from
-            <strong>Hell's Kitchen!</strong>
-          </span>
-        </div>
+        <a href="https://github.com/Thiruppathi/my-sky/" class="instructionLink" target="_blank">
+          <div class="horizontal-section instruction">
+            <iron-icon class="big" icon="description"></iron-icon>
+            <h1>Instructions</h1>
+          </div>
+        </a>
+
+        <a href="https://github.com/Thiruppathi/my-sky/archive/master.zip" class="codeLink">
+          <div class="horizontal-section code">
+            <iron-icon class="big" icon="code"></iron-icon>
+            <h1>Source Code</h1>
+          </div>
+        </a>
+
+        <a href="/" class="demoLink">
+          <div class="horizontal-section demo">
+            <iron-icon class="big" icon="visibility"></iron-icon>
+            <h1>Demo</h1>
+          </div>
+        </a>
+
       </div>
     </section>
   </template>
