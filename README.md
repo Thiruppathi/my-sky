@@ -117,7 +117,7 @@ A CustomerLocationService is available which will take the customerID as an inpu
 
 #####Evidence
 
-[See Unit Test Script for Customer Location Service](app/test/test-customer-location-service.js)
+[See Unit Test Script for Customer Location Service](https://github.com/Thiruppathi/my-sky/blob/master/app/test/test-customer-location-service.js)
 
 #####Execution
 Execute the test throgh following command.
@@ -138,7 +138,7 @@ The locationID returned from CustomerLocationService should be passed to a Catal
 3. The CatalogueService will always return Sky News and Sky Sports News.
 
 #####Evidence
-[See Unit Test Script for Catalogue Service](app/test/test-catalogue-service.js)
+[See Unit Test Script for Catalogue Service](https://github.com/Thiruppathi/my-sky/blob/master/app/test/test-catalogue-service.js)
 
 #####Execution
 Execute the test throgh following command.
