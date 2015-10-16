@@ -1,0 +1,73 @@
+<dom-module id="customer-card-rest">
+
+  <style type="text/css">
+    .customerData {
+      padding: 1em;
+      margin: 0.5em;
+      width: 250px;
+      text-align: center;
+    }
+
+    #customer-image {
+      border-radius: 100%;
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .customerData:hover {
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    .customerName {
+      font-size: 1.25em;
+      font-style: bold;
+      display: block;
+      margin: 0.5em 0 0.5em 0;
+    }
+
+    a span {
+      color: #111111;
+      text-align: center;
+    }
+
+    .dataHolder.style-scope.customer-card {
+      padding: 0.5em;
+      vertical-align: middle;
+    }
+
+    .map {
+      color: #D93F3B;
+      width: 40px;
+      height: 40px;
+      vertical-align: middle;
+    }
+
+    iron-icon {
+      --iron-icon-size: 18px;
+    }
+
+  </style>
+  <template>
+      <paper-material class="animated bounceInUp customerData" id="[[customer.customerID]]">
+        <div class="dataHolder">
+          <span class="customerName">{{customer.name}}</span>
+        </div>
+
+      </paper-material>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'customer-card-rest',
+      properties: {
+        customer: Object
+      },
+    });
+  </script>
+</dom-module>

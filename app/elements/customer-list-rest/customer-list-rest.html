@@ -1,0 +1,104 @@
+<dom-module id="customer-list-rest">
+  <style>
+    :host {
+      display: block;
+    }
+
+    paper-button.colorful {
+      color: #4285f4;
+    }
+
+    paper-button[raised].colorful {
+      background: #007878;
+      color: #fff;
+      margin: 10px;
+    }
+
+    #searchBar {
+      left: 0;
+      top: 0;
+      padding: 16px;
+    }
+
+    .break {
+      height: 1em;
+    }
+
+    paper-input {
+      width: 100%;
+    }
+
+    .horizontal-section-container {
+      @apply(--layout-horizontal);
+      @apply(--layout-left-justified);
+      @apply(--layout-wrap);
+    }
+
+    .horizontal-section {
+      background-color: white;
+      padding: 1em;
+      margin: 0.5em;
+      min-width: 200px;
+      @apply(--shadow-elevation-2dp);
+    }
+
+    .fullWidth {
+      width: 100%;
+    }
+
+    .halfWidth {
+      width: 100%
+    }
+
+    .left {
+      float: left;
+      line-height: 2em;
+      display: block;
+    }
+
+    .right {
+      float: right;
+      line-height: 2em;
+      display: block;
+    }
+
+    .big {
+      width: 45px;
+      height: 45px;
+      margin-right: 0.5em;
+      vertical-align: middle;
+    }
+
+    .info {
+      color: #31708f;
+      background-color: #d9edf7;
+      border-color: #bce8f1;
+    }
+
+    .alert {
+      color: #8a6d3b;
+      background-color: #fcf8e3;
+      border-color: #faebcc;
+    }
+
+  </style>
+  <template>
+
+    <iron-ajax auto
+        url="http://localhost:8080/mysky/webapi/customers"
+        handle-as="json"
+        last-response="{{ajaxResponse}}"></iron-ajax>
+
+    <section class="layout horizontal wrap">
+      <template is="dom-repeat" items="[[ajaxResponse]]" as="customer" id="customersList">
+        <customer-card-rest customer="{{customer}}"></customer-card-rest>
+      </template>
+    </section>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'customer-list-rest'
+    });
+  </script>
+</dom-module>
