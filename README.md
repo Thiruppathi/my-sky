@@ -1,4 +1,6 @@
 ## My Sky
+[![Lighthouse score: 85/100](https://lighthouse-badge.appspot.com/?score=85&compact&category=PWA)](https://github.com/ebidel/lighthouse-badge)
+
 Location based product purchase service.
 
 ## Technologies/Concepts Involved
