@@ -1,5 +1,10 @@
 ## My Sky
-[![Lighthouse score: 85/100](https://lighthouse-badge.appspot.com/?score=85&compact&category=PWA)](https://github.com/ebidel/lighthouse-badge)
+[![Lighthouse score: 93/100](https://lighthouse-badge.appspot.com/?score=93&compact&category=Performance)](https://github.com/ebidel/lighthouse-badge)
+[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=A11y)](https://github.com/ebidel/lighthouse-badge)
+[![Lighthouse score: 94/100](https://lighthouse-badge.appspot.com/?score=94&compact&category=BestPractices)](https://github.com/ebidel/lighthouse-badge)
+[![Lighthouse score: 89/100](https://lighthouse-badge.appspot.com/?score=89&compact&category=SEO)](https://github.com/ebidel/lighthouse-badge)
+[![Lighthouse score: 73/100](https://lighthouse-badge.appspot.com/?score=73&compact&category=PWA)](https://github.com/ebidel/lighthouse-badge)
+
 
 Location based product purchase service.
 
